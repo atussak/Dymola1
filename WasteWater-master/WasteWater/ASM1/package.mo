@@ -66,8 +66,9 @@ model nitri "ASM1 nitrification tank"
 
   // aeration system dependent parameters
   parameter Real alpha=0.7 "Oxygen transfer factor";
-  parameter Modelica.SIunits.Length de=4.5 "depth of aeration";
+  parameter Modelica.SIunits.Length de=4 "depth of aeration";
   parameter Real R_air=23.5 "specific oxygen feed factor [gO2/(m^3*m)]";
+  parameter Real Kla = 240;
   WWU.MassConcentration So_sat "Dissolved oxygen saturation";
 
   Interfaces.WWFlowAsm1in In annotation (Placement(transformation(extent={{-110,
@@ -88,8 +89,9 @@ equation
   // extends the Oxygen differential equation by an aeration term
   // aeration [mgO2/l]; AirIn.Q_air needs to be in
   // Simulationtimeunit [m3*day^-1]
-  aeration = (alpha*(So_sat - So)/So_sat*AirIn.Q_air*R_air*de)/V;
-  // aeration = Kla * (So_sat - So);
+  // aeration = (alpha*(So_sat - So)/So_sat*AirIn.Q_air*R_air*de)/V;
+
+  aeration = Kla * (So_sat - So);
 
   // volume dependent dilution term of each concentration
 
@@ -651,9 +653,7 @@ equation
 
   annotation (
     Documentation(info=
-          "This component mixes 3 flows of wastewater (ASM1) of different concentration and different amount."), Diagram(
-        coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+          "This component mixes 3 flows of wastewater (ASM1) of different concentration and different amount."));
 end mixer3;
 
 
