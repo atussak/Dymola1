@@ -1,0 +1,18 @@
+ 
+Compiling and linking the model (Visual C++). 
+ 
+64-bit mode activated. 
+"Testing 64-bit compilation" 
+Microsoft (R) C/C++ Optimizing Compiler Version 18.00.40629 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+dsmodel.c
+Microsoft (R) Incremental Linker Version 12.00.40629.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/MACHINE:X64 
+/out:dymosim.exe 
+dsmodel.obj 
+ 
+Successful generation of Dymosim. 
+ 
