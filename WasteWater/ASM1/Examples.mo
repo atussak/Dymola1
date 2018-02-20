@@ -1059,11 +1059,11 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
     ASM1.divider2 divider annotation (Placement(transformation(extent={{18,-9},
               {38,11}})));
     WasteWater.ASM1.nitri3
-               tank5(V=1333) annotation (Placement(transformation(extent={{-8,-9},
+               tank5         annotation (Placement(transformation(extent={{-8,-9},
               {12,11}})));
-    ASM1.nitri tank4(V=1333) annotation (Placement(transformation(extent={{-34,-9},
+    ASM1.nitri tank4         annotation (Placement(transformation(extent={{-34,-9},
               {-14,11}})));
-    ASM1.nitri tank3(V=1333) annotation (Placement(transformation(extent={{-62,-8},
+    ASM1.nitri tank3         annotation (Placement(transformation(extent={{-62,-8},
               {-42,12}})));
     ASM1.deni tank2 annotation (Placement(transformation(extent={{-50,19},{-30,
               39}})));
@@ -1103,6 +1103,8 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
     Modelica.Blocks.Sources.Constant Constant3(k=55338)
                                                annotation (Placement(
           transformation(extent={{-100,-67},{-80,-47}})));
+    WasteWater.ASM1.sensor_AE sensor_AE
+      annotation (Placement(transformation(extent={{36,68},{56,88}})));
   equation
     connect(divider.Out1, Settler.Feed) annotation (Line(points={{38,3.6},{42,
             3.6},{42,3.4},{46,3.4}}));
@@ -1157,6 +1159,18 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
 
     connect(Constant3.y, RecyclePump.u) annotation (Line(
         points={{-79,-57},{-77,-57},{-77,-17.5},{-78.1,-17.5}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(tank3.Kla, sensor_AE.Kla3) annotation (Line(
+        points={{-46.6,9.2},{-0.3,9.2},{-0.3,68},{46,68}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sensor_AE.Kla4, tank4.Kla) annotation (Line(
+        points={{46,69.5},{24,69.5},{24,70},{2,70},{2,8.2},{-18.6,8.2}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sensor_AE.Kla5, tank5.Kla) annotation (Line(
+        points={{46,70.5},{46,71},{6,71},{6,5.9},{3,5.9}},
         color={0,0,127},
         smooth=Smooth.None));
     annotation (
