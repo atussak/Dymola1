@@ -1063,8 +1063,8 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
               {12,11}})));
     ASM1.nitri tank4(V=1333) annotation (Placement(transformation(extent={{-34,-9},
               {-14,11}})));
-    ASM1.nitri tank3(V=1333) annotation (Placement(transformation(extent={{-62,-9},
-              {-42,11}})));
+    ASM1.nitri tank3(V=1333) annotation (Placement(transformation(extent={{-62,-8},
+              {-42,12}})));
     ASM1.deni tank2 annotation (Placement(transformation(extent={{-50,19},{-30,
               39}})));
     ASM1.deni tank1 annotation (Placement(transformation(extent={{-78,19},{-58,
@@ -1109,8 +1109,9 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
     connect(tank5.Out, divider.In) annotation (Line(points={{12,1},{15,1},{15,
             1.3},{18,1.3}}));
     connect(tank4.Out, tank5.In) annotation (Line(points={{-14,1},{-8,1}}));
-    connect(tank3.Out, tank4.In) annotation (Line(points={{-42,1},{-34,1}}));
-    connect(tank3.In, tank2.Out) annotation (Line(points={{-62,1},{-72,1},{-72,
+    connect(tank3.Out, tank4.In) annotation (Line(points={{-42,2},{-38,2},{-38,
+            1},{-34,1}}));
+    connect(tank3.In, tank2.Out) annotation (Line(points={{-62,2},{-72,2},{-72,
             15},{-20,15},{-20,29},{-30,29}}));
     connect(tank1.Out, tank2.In) annotation (Line(points={{-58,29},{-50,29}}));
     connect(mixer.Out, tank1.In) annotation (Line(points={{-86,28.6},{-82,28.6},

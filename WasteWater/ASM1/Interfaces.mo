@@ -60,7 +60,8 @@ The connector consists of one flow variable and 13 potential variables (ASM1 con
     WWU.MassConcentration Snd;
     WWU.MassConcentration Xnd;
     WWU.Alkalinity Salk;
-    annotation (
+
+      annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},

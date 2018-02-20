@@ -12,7 +12,6 @@ model nitri3 "ASM1 nitrification tank"
   //parameter Real alpha=0.7 "Oxygen transfer factor";
   parameter Modelica.SIunits.Length de=4 "depth of aeration";
   //parameter Real R_air=23.5 "specific oxygen feed factor [gO2/(m^3*m)]";
-  Real Kla;
 
   WWU.MassConcentration So_sat "Dissolved oxygen saturation";
 
@@ -24,8 +23,11 @@ model nitri3 "ASM1 nitrification tank"
           extent={{50,40},{60,50}})));
   Interfaces.AirFlow AirIn annotation (Placement(transformation(extent={{-5,
             -103},{5,-93}})));
+  Modelica.Blocks.Interfaces.RealOutput Kla annotation (Placement(transformation(extent={{5,43},{
+            15,55}})));
 
 equation
+  Kla = 240;
   // Temperature dependent oxygen saturation by Simba
   So_sat =8;//13.89 + (-0.3825 + (0.007311 - 0.00006588*T)*T)*T;
   So = 2;
@@ -52,6 +54,10 @@ equation
   inputXnd = (In.Xnd - Xnd)*In.Q/V;
   inputSalk = (In.Salk - Salk)*In.Q/V;
 
+  connect(Kla, Kla) annotation (Line(
+      points={{10,49},{10,49}},
+      color={0,0,127},
+      smooth=Smooth.None));
   annotation (
     Documentation(info="This component models the ASM1 processes and reactions taking place in an aerated (nitrification) tank
 of a wastewater treatment plant.
@@ -65,6 +71,7 @@ Parameters:
   alpha - oxygen transfer factor
   de    - depth of the aeration system [m]
   R_air - specific oxygen feed factor [g O2/(m3*m)]
-"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}),
+                    graphics));
 end nitri3;

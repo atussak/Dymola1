@@ -273,7 +273,8 @@ Parameter:
     parameter Real aXs=45/100 "Fraction of Xs of the total COD in the influent";
     parameter Real aXbh=20/100
       "Fraction of Xbh of the total COD in the influent";
-    parameter Real aXba=0/100 "Fraction of Xba of the total COD in the influent";
+    parameter Real aXba=0/100
+      "Fraction of Xba of the total COD in the influent";
     parameter Real aXp=0/100 "Fraction of Xp of the total COD in the influent";
     parameter Real aSo=0.0 "Dissolved oxygen in the inflow [mg/l]";
     parameter Real aSnd=1/100 "Fraction Snd of Ss in the influent";
