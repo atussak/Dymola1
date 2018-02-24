@@ -1059,8 +1059,8 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
     ASM1.divider2 divider annotation (Placement(transformation(extent={{18,-9},
               {38,11}})));
     WasteWater.ASM1.nitri3
-               tank5         annotation (Placement(transformation(extent={{-8,-9},
-              {12,11}})));
+               tank5         annotation (Placement(transformation(extent={{-7,-9},
+              {13,11}})));
     ASM1.nitri tank4         annotation (Placement(transformation(extent={{-34,-9},
               {-14,11}})));
     ASM1.nitri tank3         annotation (Placement(transformation(extent={{-62,-8},
@@ -1076,8 +1076,8 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
               {-70,95}})));
     ASM1.sensor_NO sensor_NO annotation (Placement(transformation(extent={{-44,45},
               {-24,65}})));
-    ASM1.sensor_O2 sensor_O2 annotation (Placement(transformation(extent={{-1,22},
-              {16,39}})));
+    ASM1.sensor_O2 sensor_O2 annotation (Placement(transformation(extent={{15,20},
+              {32,37}})));
     ASM1.pump RecyclePump(Q_max=55338) annotation (Placement(transformation(
           origin={-87,-15},
           extent={{-10,-10},{10,10}},
@@ -1104,13 +1104,13 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
                                                annotation (Placement(
           transformation(extent={{-100,-67},{-80,-47}})));
     WasteWater.ASM1.sensor_AE sensor_AE
-      annotation (Placement(transformation(extent={{36,68},{56,88}})));
+      annotation (Placement(transformation(extent={{-15,36},{5,56}})));
   equation
     connect(divider.Out1, Settler.Feed) annotation (Line(points={{38,3.6},{42,
             3.6},{42,3.4},{46,3.4}}));
-    connect(tank5.Out, divider.In) annotation (Line(points={{12,1},{15,1},{15,
+    connect(tank5.Out, divider.In) annotation (Line(points={{13,1},{15,1},{15,
             1.3},{18,1.3}}));
-    connect(tank4.Out, tank5.In) annotation (Line(points={{-14,1},{-8,1}}));
+    connect(tank4.Out, tank5.In) annotation (Line(points={{-14,1},{-10,1},{-7,1}}));
     connect(tank3.Out, tank4.In) annotation (Line(points={{-42,2},{-38,2},{-38,
             1},{-34,1}}));
     connect(tank3.In, tank2.Out) annotation (Line(points={{-62,2},{-72,2},{-72,
@@ -1152,8 +1152,8 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
       annotation (Line(points={{41,-61},{44,-61},{44,-31.5},{32.9,-31.5}},
                                                                        color={0,
             0,255}));
-    connect(tank5.MeasurePort, sensor_O2.In) annotation (Line(points={{7.5,5.5},
-            {7.5,22}}));
+    connect(tank5.MeasurePort, sensor_O2.In) annotation (Line(points={{8.5,5.5},
+            {10.5,5.5},{10.5,20},{23.5,20}}));
     connect(sensor_TSS1.In, divider.Out1) annotation (Line(points={{38,12},{38,
             3.6}}));
 
@@ -1161,16 +1161,17 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
         points={{-79,-57},{-77,-57},{-77,-17.5},{-78.1,-17.5}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(tank3.Kla, sensor_AE.Kla3) annotation (Line(
-        points={{-46.6,9.2},{-0.3,9.2},{-0.3,68},{46,68}},
+    connect(sensor_AE.Kla5, tank5.Kla) annotation (Line(
+        points={{1.2,38.4},{1.2,5.9},{4,5.9}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(sensor_AE.Kla4, tank4.Kla) annotation (Line(
-        points={{46,69.5},{24,69.5},{24,70},{2,70},{2,8.2},{-18.6,8.2}},
+        points={{-6.6,38.4},{-6.6,34.7},{-18.6,34.7},{-18.6,8.2}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(sensor_AE.Kla5, tank5.Kla) annotation (Line(
-        points={{46,70.5},{46,71},{6,71},{6,5.9},{3,5.9}},
+    connect(tank3.Kla, sensor_AE.Kla3) annotation (Line(
+        points={{-46.6,9.2},{-46.6,11},{-11,11},{-11,21},{-11.2,21},{-11.2,39}},
+
         color={0,0,127},
         smooth=Smooth.None));
     annotation (
