@@ -1283,7 +1283,6 @@ package Icons "Icon definitions for the WasteWater library"
             lineColor={0,127,255},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
-          Documentation,
           Rectangle(
             extent={{54,-6},{57,40}},
             lineColor={0,0,0},
@@ -4072,7 +4071,6 @@ package Icons "Icon definitions for the WasteWater library"
             thickness=1),
           Polygon(
             points={{-80,-20},{-94,-20},{-94,-80},{-60,-80},{-80,-20},{-80,-20}},
-
             lineColor={0,191,0},
             fillColor={0,191,0},
             fillPattern=FillPattern.Solid),
@@ -4131,7 +4129,6 @@ package Icons "Icon definitions for the WasteWater library"
             thickness=1),
           Polygon(
             points={{-80,-20},{-94,-20},{-94,-80},{-60,-80},{-80,-20},{-80,-20}},
-
             lineColor={0,191,0},
             fillColor={0,191,0},
             fillPattern=FillPattern.Solid),
@@ -4160,6 +4157,7 @@ package Icons "Icon definitions for the WasteWater library"
             thickness=1),
           Text(extent={{-100,100},{98,60}}, textString=
                                                 "%name")}));
+
   end EffluentSink;
 
   partial model SludgeSink "Icon for a wastewater sink"
@@ -4425,8 +4423,7 @@ package Icons "Icon definitions for the WasteWater library"
             fillPattern=FillPattern.VerticalCylinder,
             fillColor={192,192,192}),
           Text(extent={{-100,90},{99,51}}, textString=
-                                               "%name"),
-          Documentation},
+                                               "%name")},
         Documentation(info="Icon for a controlled divider into 2 flows")),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
@@ -4841,7 +4838,6 @@ package Icons "Icon definitions for the WasteWater library"
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{22,10},{41,10},{40,12},{46,9},{40,6},{41,8},{22,8},{22,10}},
-
             lineColor={0,0,255},
             pattern=LinePattern.None,
             fillColor={191,95,0},
@@ -4940,7 +4936,6 @@ package Icons "Icon definitions for the WasteWater library"
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{22,10},{41,10},{40,12},{46,9},{40,6},{41,8},{22,8},{22,10}},
-
             lineColor={0,0,255},
             pattern=LinePattern.None,
             fillColor={191,95,0},
@@ -4959,6 +4954,7 @@ package Icons "Icon definitions for the WasteWater library"
             pattern=LinePattern.None,
             fillColor={191,95,0},
             fillPattern=FillPattern.Solid)}));
+
   end mixer2;
 
   partial model mixer3 "Icon for a mixer of 3 flows"
@@ -6040,6 +6036,95 @@ package Icons "Icon definitions for the WasteWater library"
             thickness=0.5),
           Line(points={{50,0},{88,0}})}));
   end sensor_TSS;
+
+  partial model sensor_AE "Icon for an oxygen sensor"
+    annotation (
+      Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          grid={2,2}), graphics={
+          Ellipse(
+            extent={{-50,50},{50,-50}},
+            lineColor={0,0,0},
+            lineThickness=0.5,
+            fillColor={223,223,159},
+            fillPattern=FillPattern.Solid),
+          Text(extent={{-98,98},{100,60}}, textString=
+                                               "%name"),
+          Line(
+            points={{0,50},{0,38}},
+            thickness=0.5),
+          Line(
+            points={{-50,0},{38,0}},
+            thickness=0.5),
+          Line(
+            points={{50,0},{38,0}},
+            thickness=0.5),
+          Line(
+            points={{-36,34},{-28,26}},
+            thickness=0.5),
+          Line(
+            points={{34,36},{26,28}},
+            thickness=0.5),
+          Line(
+            points={{0,0},{26,28}},
+            thickness=0.5),
+          Polygon(
+            points={{30,32},{10,24},{24,12},{30,32}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Text(extent={{-36,-10},{36,-32}},
+            textString="AE",
+            lineColor={0,0,0}),
+          Line(
+            points={{0,-50},{0,-90}},
+            thickness=0.5),
+          Line(points={{50,0},{88,0}})}),
+      Documentation(info="Icon for an oxygen sensor "),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          grid={2,2}), graphics={
+          Ellipse(
+            extent={{-50,50},{50,-50}},
+            lineColor={0,0,0},
+            lineThickness=0.5,
+            fillColor={223,223,159},
+            fillPattern=FillPattern.Solid),
+          Text(extent={{-98,100},{100,60}}, textString=
+                                                "%name"),
+          Line(
+            points={{0,50},{0,38}},
+            thickness=0.5),
+          Line(
+            points={{-50,0},{38,0}},
+            thickness=0.5),
+          Line(
+            points={{50,0},{38,0}},
+            thickness=0.5),
+          Line(
+            points={{-36,34},{-28,26}},
+            thickness=0.5),
+          Line(
+            points={{34,36},{26,28}},
+            thickness=0.5),
+          Line(
+            points={{0,0},{26,28}},
+            thickness=0.5),
+          Polygon(
+            points={{30,32},{10,24},{24,12},{30,32}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Text(extent={{-36,-10},{36,-32}},
+            textString="AE",
+            lineColor={0,0,0}),
+          Line(
+            points={{0,-50},{0,-90}},
+            thickness=0.5),
+          Line(points={{50,0},{88,0}})}));
+  end sensor_AE;
   annotation (
     Documentation(info="This package is part of the WasteWater Library and contains
 definitions for the graphical layout of components which are

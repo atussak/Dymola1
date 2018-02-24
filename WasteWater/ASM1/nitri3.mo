@@ -71,6 +71,7 @@ Parameters:
   alpha - oxygen transfer factor
   de    - depth of the aeration system [m]
   R_air - specific oxygen feed factor [g O2/(m3*m)]
-"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}),
+                    graphics));
 end nitri3;

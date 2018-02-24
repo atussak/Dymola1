@@ -315,6 +315,8 @@ model pump "ASM1 wastewater pump"
             18},{110,38}})));
   Modelica.Blocks.Interfaces.RealInput u annotation (Placement(transformation(
           extent={{-99,15},{-79,35}})));
+  Modelica.Blocks.Interfaces.RealOutput Q annotation (Placement(transformation(extent={{61,-47},
+            {80,-28}})));
 equation
 
   H =0.5*(-Q_min + Q_max) + u*0.5*(-Q_min + Q_max) + Q_min;
@@ -335,6 +337,7 @@ equation
   Out.Xnd = In.Xnd;
   Out.Salk = In.Salk;
 
+  Q = (if Out.Q < 0 then -Out.Q else Out.Q);
   annotation (
     Documentation(info="This component models an ASM1 wastewater pump. It generates a wastewater flow
 that is controlled by the signal u (-1 <= u <=1).
@@ -344,7 +347,8 @@ Parameter:
   Qmax - maximum pump capacity [m3/d], this is produced when the control signal u is 1 or greater.
   Qmin - minimum pump capacity [m3/d], this is produced when the control signal u is -1 or below.
 
-"));
+"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics));
 end pump;
 
 
@@ -461,9 +465,14 @@ model EffluentSink "Receiving water (river)"
   extends WasteWater.Icons.EffluentSink;
   Interfaces.WWFlowAsm1in In annotation (Placement(transformation(extent={{-110,
             10},{-90,30}})));
+
+  Interfaces.WWFlowAsm1out MeasurePort annotation (Placement(transformation(
+          extent={{0,28},{10,38}})));
+
   annotation (
     Documentation(info="This component terminates an ASM1 wastewater treatment plant model e.g. the wastewater flow to the receiving water.
-"));
+"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics));
 end EffluentSink;
 
 
