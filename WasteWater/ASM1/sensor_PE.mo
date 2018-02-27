@@ -13,7 +13,7 @@ model sensor_PE "PE"
   Real T(start=1e-3);
 equation
   der(T)  =  1.0;
-  der(PE) =  1/T*(0.004*Qa+0.008*Qr+0.05*Qw);
+  der(PE*T) =  1/(0.004*Qa+0.008*Qr+0.05*Qw);
 
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics));

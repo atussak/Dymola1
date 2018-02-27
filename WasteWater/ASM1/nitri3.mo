@@ -27,10 +27,10 @@ model nitri3 "ASM1 nitrification tank"
             15,55}})));
 
 equation
-  //Kla = 240;
+  //Kla = 84;
+  So = 2;
   // Temperature dependent oxygen saturation by Simba
   So_sat =8;//13.89 + (-0.3825 + (0.007311 - 0.00006588*T)*T)*T;
-  So = 2;
   // extends the Oxygen differential equation by an aeration term
   // aeration [mgO2/l]; AirIn.Q_air needs to be in
   // Simulationtimeunit [m3*day^-1]
