@@ -2,12 +2,12 @@ within WasteWater.ASM1;
 model sensor_AE "AE"
 
   extends WasteWater.Icons.sensor_AE;
-  Modelica.Blocks.Interfaces.RealInput Kla3 annotation (Placement(transformation(extent={{-10,
-            -110},{10,-90}})));
-  Modelica.Blocks.Interfaces.RealInput Kla4 annotation (Placement(transformation(extent={{-10,
-            -80},{10,-90}})));
-  Modelica.Blocks.Interfaces.RealInput Kla5 annotation (Placement(transformation(extent={{-10,
-            -60},{10,-90}})));
+  Modelica.Blocks.Interfaces.RealInput Kla3 annotation (Placement(transformation(extent={{-92,-92},
+            {-72,-72}})));
+  Modelica.Blocks.Interfaces.RealInput Kla4 annotation (Placement(transformation(extent={{-76,-72},
+            {-56,-92}})));
+  Modelica.Blocks.Interfaces.RealInput Kla5 annotation (Placement(transformation(extent={{-60,-72},
+            {-40,-92}})));
 
   Real AE(start=0);
   Real T(start=1e-3);

@@ -5,8 +5,8 @@ model sensor_SP "SP"
 
  Interfaces.WWFlowAsm1in In annotation (Placement(transformation(extent={{-10, -110},{10,-90}})));
 
-  Modelica.Blocks.Interfaces.RealInput Q annotation (Placement(transformation(extent={{54,40},
-            {74,60}})));
+  Modelica.Blocks.Interfaces.RealInput Q annotation (Placement(transformation(extent={{-88,36},
+            {-68,56}})));
 
  Real SP(start=0);
  Real T(start=1e-3);

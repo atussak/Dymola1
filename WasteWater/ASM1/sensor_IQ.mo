@@ -5,8 +5,8 @@ model sensor_IQ "IQ"
 
  Interfaces.WWFlowAsm1in In annotation (Placement(transformation(extent={{-10, -110},{10,-90}})));
 
-  Modelica.Blocks.Interfaces.RealInput Q annotation (Placement(transformation(extent={{48,-78},
-            {68,-58}})));
+  Modelica.Blocks.Interfaces.RealInput Q annotation (Placement(transformation(extent={{54,40},
+            {74,60}})));
 
   parameter Real Bss = 2;
   parameter Real Bcod = 1;

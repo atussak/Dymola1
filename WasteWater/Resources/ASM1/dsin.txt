@@ -9,9 +9,9 @@ Modelica experiment file
 double experiment(7,1)
        0                   # StartTime    Time at which integration starts
                            #              (and linearization and trimming time)
-     100                   # StopTime     Time at which integration stops
+       1                   # StopTime     Time at which integration stops
        0                   # Increment    Communication step size, if > 0
-   10000                   # nInterval    Number of communication intervals, if > 0
+     500                   # nInterval    Number of communication intervals, if > 0
  9.9999999999999995E-008   # Tolerance    Relative precision of signals for
                            #              simulation, linearization and trimming
        0                   # MaxFixedStep Maximum step size of fixed step size
@@ -102,7 +102,7 @@ int settings(13,1)
 
 
 #    Names of initial variables
-char initialName(829,24)
+char initialName(838,22)
 Effluent.In.Q
 Effluent.In.Xi
 Effluent.In.Xs
@@ -790,7 +790,7 @@ mixer.In1.Snh
 mixer.In1.Snd
 mixer.In1.Xnd
 mixer.In1.Salk
-mixer.In3.So
+mixer.In2.So
 WWSource.Out.Q
 WWSource.Out.Si
 WWSource.Out.Ss
@@ -839,7 +839,6 @@ sensor_COD1.COD
 sensor_TSS1.In.Q
 sensor_TSS1.In.So
 sensor_TSS1.TSS
-Constant3.k
 sensor_AE.Kla3
 sensor_AE.Kla4
 sensor_AE.AE
@@ -851,6 +850,8 @@ sensor_PE.der(PE)
 sensor_PE.T
 sensor_PE.der(T)
 sensor_EQ.In.Q
+sensor_EQ.EQ
+sensor_EQ.der(EQ)
 sensor_EQ.Bss
 sensor_EQ.Bcod
 sensor_EQ.Bnkj
@@ -859,45 +860,43 @@ sensor_EQ.Bbod5
 sensor_EQ.iXB
 sensor_EQ.iXP
 sensor_EQ.fp
-sensor_EQ.EQ
-sensor_EQ.der(EQ)
 sensor_EQ.T
 sensor_EQ.der(T)
 sensor_EQ.SNkje
 sensor_EQ.SSe
 sensor_EQ.BOD
 sensor_EQ.COD
-influent_quality.In.Q
-influent_quality.In.Si
-influent_quality.In.Ss
-influent_quality.In.Xi
-influent_quality.In.Xs
-influent_quality.In.Xbh
-influent_quality.In.Xba
-influent_quality.In.Xp
-influent_quality.In.So
-influent_quality.In.Sno
-influent_quality.In.Snh
-influent_quality.In.Snd
-influent_quality.In.Xnd
-influent_quality.In.Salk
-influent_quality.Q
-influent_quality.Bss
-influent_quality.Bcod
-influent_quality.Bnkj
-influent_quality.Bno
-influent_quality.Bbod5
-influent_quality.iXB
-influent_quality.iXP
-influent_quality.fp
-influent_quality.IQ
-influent_quality.der(IQ)
-influent_quality.T
-influent_quality.der(T)
-influent_quality.SNkje
-influent_quality.SSe
-influent_quality.BOD
-influent_quality.COD
+sensor_IQ.In.Q
+sensor_IQ.In.Si
+sensor_IQ.In.Ss
+sensor_IQ.In.Xi
+sensor_IQ.In.Xs
+sensor_IQ.In.Xbh
+sensor_IQ.In.Xba
+sensor_IQ.In.Xp
+sensor_IQ.In.So
+sensor_IQ.In.Sno
+sensor_IQ.In.Snh
+sensor_IQ.In.Snd
+sensor_IQ.In.Xnd
+sensor_IQ.In.Salk
+sensor_IQ.Q
+sensor_IQ.IQ
+sensor_IQ.der(IQ)
+sensor_IQ.Bss
+sensor_IQ.Bcod
+sensor_IQ.Bnkj
+sensor_IQ.Bno
+sensor_IQ.Bbod5
+sensor_IQ.iXB
+sensor_IQ.iXP
+sensor_IQ.fp
+sensor_IQ.T
+sensor_IQ.der(T)
+sensor_IQ.SNkje
+sensor_IQ.SSe
+sensor_IQ.BOD
+sensor_IQ.COD
 sensor_Q1.In.Q
 sensor_Q1.In.Si
 sensor_Q1.In.Ss
@@ -932,8 +931,18 @@ sensor_SP.SP
 sensor_SP.der(SP)
 sensor_SP.T
 sensor_SP.der(T)
+sensor_ME.Kla3
+sensor_ME.Kla4
+sensor_ME.ME
+sensor_ME.der(ME)
+sensor_ME.T
+sensor_ME.der(T)
+sensor_ME.V
+sensor_OCI.OCI
+Constant1.k
+Constant3.k
 
-double initialValue(829,6)
+double initialValue(838,6)
   0       0                  0       0                  6  388   # Effluent.In.Q
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xi
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xs
@@ -1621,7 +1630,7 @@ double initialValue(829,6)
   0 6.9500000000000002E+000  0 1.0000000000000000E+100  6  260   # mixer.In1.Snd
   0 1.0590000000000000E+001  0 1.0000000000000000E+100  6  260   # mixer.In1.Xnd
   0       7                  0 1.0000000000000000E+100  6  260   # mixer.In1.Salk
-  0       2                  0 1.0000000000000000E+100  6  260   # mixer.In3.So
+  0       2                  0 1.0000000000000000E+100  6  260   # mixer.In2.So
   0  -18446                  0       0                  6  388   # WWSource.Out.Q
   0      30                  0 1.0000000000000000E+100  6  260   # WWSource.Out.Si
   0 6.9500000000000000E+001  0 1.0000000000000000E+100  6  260   # WWSource.Out.Ss
@@ -1670,7 +1679,6 @@ double initialValue(829,6)
   0       0                  0       0                  6  388   # sensor_TSS1.In.Q
   0       2                  0 1.0000000000000000E+100  6  260   # sensor_TSS1.In.So
   0       0                  0       0                  6  256   # sensor_TSS1.TSS
- -1   55338                  0       0                  1  280   # Constant3.k
   0     240                  0       0                  6  256   # sensor_AE.Kla3
   0     240                  0       0                  6  256   # sensor_AE.Kla4
  -1       0                  0       0                  2  280   # sensor_AE.AE
@@ -1682,6 +1690,8 @@ double initialValue(829,6)
  -1 1.0000000000000000E-003  0       0                  2  280   # sensor_PE.T
   0       0                  0       0                  3  256   # sensor_PE.der(T)
   0       0                  0       0                  6  388   # sensor_EQ.In.Q
+ -1       0                  0       0                  2  280   # sensor_EQ.EQ
+  0       0                  0       0                  3  256   # sensor_EQ.der(EQ)
  -1       2                  0       0                  1  280   # sensor_EQ.Bss
  -1       1                  0       0                  1  280   # sensor_EQ.Bcod
  -1      30                  0       0                  1  280   # sensor_EQ.Bnkj
@@ -1690,45 +1700,43 @@ double initialValue(829,6)
  -1 8.0000000000000002E-002  0       0                  1  280   # sensor_EQ.iXB
  -1 5.9999999999999998E-002  0       0                  1  280   # sensor_EQ.iXP
  -1 8.0000000000000002E-002  0       0                  1  280   # sensor_EQ.fp
- -1       0                  0       0                  2  280   # sensor_EQ.EQ
-  0       0                  0       0                  3  256   # sensor_EQ.der(EQ)
  -1 1.0000000000000000E-003  0       0                  2  280   # sensor_EQ.T
   0       0                  0       0                  3  256   # sensor_EQ.der(T)
   0       0                  0       0                  6  256   # sensor_EQ.SNkje
   0       0                  0       0                  6  256   # sensor_EQ.SSe
   0       0                  0       0                  6  256   # sensor_EQ.BOD
   0       0                  0       0                  6  256   # sensor_EQ.COD
-  0       0                  0       0                  6  388   # influent_quality.In.Q
-  0      30                  0 1.0000000000000000E+100  6  260   # influent_quality.In.Si
-  0 6.9500000000000000E+001  0 1.0000000000000000E+100  6  260   # influent_quality.In.Ss
-  0 5.1200000000000003E+001  0 1.0000000000000000E+100  6  260   # influent_quality.In.Xi
-  0 2.0231999999999999E+002  0 1.0000000000000000E+100  6  260   # influent_quality.In.Xs
-  0 2.8170000000000002E+001  0 1.0000000000000000E+100  6  260   # influent_quality.In.Xbh
-  0       0                  0 1.0000000000000000E+100  6  260   # influent_quality.In.Xba
-  0       0                  0 1.0000000000000000E+100  6  260   # influent_quality.In.Xp
-  0       0                  0 1.0000000000000000E+100  6  260   # influent_quality.In.So
-  0       0                  0 1.0000000000000000E+100  6  260   # influent_quality.In.Sno
-  0 3.1559999999999999E+001  0 1.0000000000000000E+100  6  260   # influent_quality.In.Snh
-  0 6.9500000000000002E+000  0 1.0000000000000000E+100  6  260   # influent_quality.In.Snd
-  0 1.0590000000000000E+001  0 1.0000000000000000E+100  6  260   # influent_quality.In.Xnd
-  0       7                  0 1.0000000000000000E+100  6  260   # influent_quality.In.Salk
-  0   18446                  0       0                  6  256   # influent_quality.Q
- -1       2                  0       0                  1  280   # influent_quality.Bss
- -1       1                  0       0                  1  280   # influent_quality.Bcod
- -1      30                  0       0                  1  280   # influent_quality.Bnkj
- -1      10                  0       0                  1  280   # influent_quality.Bno
- -1       2                  0       0                  1  280   # influent_quality.Bbod5
- -1 8.0000000000000002E-002  0       0                  1  280   # influent_quality.iXB
- -1 5.9999999999999998E-002  0       0                  1  280   # influent_quality.iXP
- -1 8.0000000000000002E-002  0       0                  1  280   # influent_quality.fp
- -1       0                  0       0                  2  280   # influent_quality.IQ
-  0       0                  0       0                  3  256   # influent_quality.der(IQ)
- -1 1.0000000000000000E-003  0       0                  2  280   # influent_quality.T
-  0       0                  0       0                  3  256   # influent_quality.der(T)
-  0       0                  0       0                  6  256   # influent_quality.SNkje
-  0 2.1126749999999998E+002  0       0                  6  256   # influent_quality.SSe
-  0       0                  0       0                  6  256   # influent_quality.BOD
-  0 3.8119000000000000E+002  0       0                  6  256   # influent_quality.COD
+  0       0                  0       0                  6  388   # sensor_IQ.In.Q
+  0      30                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Si
+  0 6.9500000000000000E+001  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Ss
+  0 5.1200000000000003E+001  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xi
+  0 2.0231999999999999E+002  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xs
+  0 2.8170000000000002E+001  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.So
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Sno
+  0 3.1559999999999999E+001  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Snh
+  0 6.9500000000000002E+000  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Snd
+  0 1.0590000000000000E+001  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xnd
+  0       7                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Salk
+  0   18446                  0       0                  6  256   # sensor_IQ.Q
+ -1       0                  0       0                  2  280   # sensor_IQ.IQ
+  0       0                  0       0                  3  256   # sensor_IQ.der(IQ)
+ -1       2                  0       0                  1  280   # sensor_IQ.Bss
+ -1       1                  0       0                  1  280   # sensor_IQ.Bcod
+ -1      30                  0       0                  1  280   # sensor_IQ.Bnkj
+ -1      10                  0       0                  1  280   # sensor_IQ.Bno
+ -1       2                  0       0                  1  280   # sensor_IQ.Bbod5
+ -1 8.0000000000000002E-002  0       0                  1  280   # sensor_IQ.iXB
+ -1 5.9999999999999998E-002  0       0                  1  280   # sensor_IQ.iXP
+ -1 8.0000000000000002E-002  0       0                  1  280   # sensor_IQ.fp
+ -1 1.0000000000000000E-003  0       0                  2  280   # sensor_IQ.T
+  0       0                  0       0                  3  256   # sensor_IQ.der(T)
+  0       0                  0       0                  6  256   # sensor_IQ.SNkje
+  0 2.1126749999999998E+002  0       0                  6  256   # sensor_IQ.SSe
+  0       0                  0       0                  6  256   # sensor_IQ.BOD
+  0 3.8119000000000000E+002  0       0                  6  256   # sensor_IQ.COD
   0   18446                  0       0                  6  388   # sensor_Q1.In.Q
   0      30                  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Si
   0 6.9500000000000000E+001  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Ss
@@ -1763,6 +1771,16 @@ double initialValue(829,6)
   0       0                  0       0                  3  256   # sensor_SP.der(SP)
  -1 1.0000000000000000E-003  0       0                  2  280   # sensor_SP.T
   0       0                  0       0                  3  256   # sensor_SP.der(T)
+  0     240                  0       0                  6  256   # sensor_ME.Kla3
+  0     240                  0       0                  6  256   # sensor_ME.Kla4
+ -1       0                  0       0                  2  280   # sensor_ME.ME
+  0       0                  0       0                  3  256   # sensor_ME.der(ME)
+ -1 1.0000000000000000E-003  0       0                  2  280   # sensor_ME.T
+  0       0                  0       0                  3  256   # sensor_ME.der(T)
+ -1    1333                  0       0                  1  280   # sensor_ME.V
+  0       0                  0       0                  6  256   # sensor_OCI.OCI
+ -1   55338                  0       0                  1  280   # Constant1.k
+ -1       1                  0       0                  1  280   # Constant3.k
 
 
 # Matrix with 6 columns defining the initial value calculation
@@ -1813,7 +1831,7 @@ double initialValue(829,6)
 #   nominal value (and maybe minimum and maximum values given in 
 #   column 3 and 4). If these values are zero, scale(i)=1 is used).
 #
-char initialDescription(829,72)
+char initialDescription(838,72)
 [m3/d]
 [mg/l]
 [mg/l]
@@ -2550,97 +2568,106 @@ Fraction nitrogen in particulate products [g N/(g COD)] []
 [m3/d]
 [mg/l]
 
+
+
+
+
+
+
+
+
+
+
+[m3/d]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mmol/l]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mmol/l]
+[m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mmol/l]
+
+[m3/d]
+
+
+
+
+
+
+
+
+
+
+
+
 Constant output value
-
-
-
-
-
-
-
-
-
-
-[m3/d]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[m3/d]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mmol/l]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[m3/d]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mmol/l]
-[m3/d]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mmol/l]
-
-[m3/d]
-
-
-
-
+Constant output value
 
