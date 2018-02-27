@@ -1,12 +1,14 @@
 within WasteWater.ASM1;
 model sensor_EQ "EQ"
 
-  extends WasteWater.Icons.sensor_O2;
+  extends WasteWater.Icons.sensor_EQ;
 
  Interfaces.WWFlowAsm1in In annotation (Placement(transformation(extent={{-10, -110},{10,-90}})));
 
-  Modelica.Blocks.Interfaces.RealInput Q annotation (Placement(transformation(extent={{48,-78},
-            {68,-58}})));
+  Modelica.Blocks.Interfaces.RealInput Q annotation (Placement(transformation(extent={{-96,-10},
+            {-76,10}}), iconTransformation(extent={{-96,-10},{-76,10}})));
+  Modelica.Blocks.Interfaces.RealOutput EQ(start=0) annotation (Placement(
+        transformation(extent={{88,-10},{108,10}})));
 
   parameter Real Bss = 2;
   parameter Real Bcod = 1;
@@ -17,7 +19,6 @@ model sensor_EQ "EQ"
   parameter Real iXP = 0.06;
   parameter Real fp = 0.08;
 
- Real EQ(start=0);
  Real T(start=1e-3);
  Real SNkje;
   Real SSe;
@@ -36,5 +37,8 @@ equation
    der(EQ*T) =  1/1000*(Bss*SSe+Bcod*COD+Bnkj*SNkje+Bno*In.Sno+Bbod5*BOD)*Q;
 
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}), graphics));
+            -100},{100,100}}), graphics), Icon(coordinateSystem(
+          preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics
+        ={
+        Line(points={{-88,0},{-50,0}})}));
 end sensor_EQ;

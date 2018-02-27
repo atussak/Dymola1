@@ -6,7 +6,7 @@ model sensor_PE "PE"
             {32,-76}}), iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={28,-86})));
+        origin={0,-86})));
   Modelica.Blocks.Interfaces.RealInput Qr annotation (Placement(transformation(extent={{-46,-96},
             {-26,-76}}), iconTransformation(
         extent={{-10,-10},{10,10}},
@@ -16,7 +16,7 @@ model sensor_PE "PE"
             {8,-76}}), iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={0,-86})));
+        origin={28,-86})));
   Modelica.Blocks.Interfaces.RealOutput PE(start=0) annotation (Placement(
         transformation(extent={{88,-10},{108,10}})));
 
