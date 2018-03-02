@@ -12,7 +12,7 @@ double experiment(7,1)
        0                   # StopTime     Time at which integration stops
        0                   # Increment    Communication step size, if > 0
      100                   # nInterval    Number of communication intervals, if > 0
- 1.0000000000000000E-004   # Tolerance    Relative precision of signals for
+  1.0000000000000000E-04   # Tolerance    Relative precision of signals for
                            #              simulation, linearization and trimming
        0                   # MaxFixedStep Maximum step size of fixed step size
                            #              integrators, if > 0.0
@@ -70,8 +70,8 @@ double method(27,1)
        0                   # hmax     Maximum absolute stepsize, if > 0
        0                   # hmin     Minimum absolute stepsize, if > 0 (use with care!)
        0                   # h0       Stepsize to be attempted on first step, if > 0
- 9.9999999999999998E-013   # teps     Bound to check, if 2 equal time instants
- 1.0000000000000000E-010   # eveps    Hysteresis epsilon at event points
+  9.9999999999999998E-13   # teps     Bound to check, if 2 equal time instants
+  1.0000000000000000E-10   # eveps    Hysteresis epsilon at event points
       20                   # eviter   Maximum number of event iterations
        0                   # delaym   Minimum time increment in delay buffers
        1                   # fexcep   0/1 floating exception crashes/stops dymosim
@@ -102,7 +102,7 @@ int settings(13,1)
 
 
 #    Names of initial variables
-char initialName(742,21)
+char initialName(838,22)
 Effluent.In.Q
 Effluent.In.Xi
 Effluent.In.Xs
@@ -110,6 +110,7 @@ Effluent.In.Xbh
 Effluent.In.Xba
 Effluent.In.Xp
 Effluent.In.Xnd
+Effluent.MeasurePort.Q
 WasteSludge.In.Q
 WasteSludge.In.Xi
 WasteSludge.In.Xs
@@ -130,6 +131,7 @@ Settler.Asc
 Settler.Xt
 Settler.Xf
 Settler.Feed.Q
+Settler.Feed.So
 Settler.Return.Q
 Settler.Return.Xi
 Settler.Return.Xs
@@ -258,6 +260,7 @@ Settler.S6.der(Snd)
 Settler.S6.Salk
 Settler.S6.der(Salk)
 Settler.S6.Up.SedFlux
+Settler.S6.In.So
 Settler.S7.zm
 Settler.S7.Asc
 Settler.S7.X
@@ -342,7 +345,10 @@ Settler.S10.Salk
 Settler.S10.der(Salk)
 Settler.S10.Xt
 divider.In.Q
+divider.In.So
+divider.Out1.So
 divider.Out2.Q
+divider.Out2.So
 tank5.Y_h
 tank5.Y_a
 tank5.f_p
@@ -421,7 +427,9 @@ tank5.inputSnd
 tank5.inputXnd
 tank5.inputSalk
 tank5.aeration
+tank5.Out.So
 tank5.MeasurePort.Q
+tank5.MeasurePort.So
 tank5.V
 tank5.de
 tank5.So_sat
@@ -782,6 +790,7 @@ mixer.In1.Snh
 mixer.In1.Snd
 mixer.In1.Xnd
 mixer.In1.Salk
+mixer.In3.So
 WWSource.Out.Q
 WWSource.Out.Si
 WWSource.Out.Ss
@@ -798,9 +807,13 @@ WWSource.Out.Xnd
 WWSource.Out.Salk
 sensor_NO.In.Q
 sensor_O2.In.Q
+sensor_O2.In.So
+sensor_O2.So
 RecyclePump.Q_min
 RecyclePump.Q_max
 RecyclePump.H
+RecyclePump.In.So
+RecyclePump.Out.So
 RecyclePump.Q
 ReturnPump.Q_min
 ReturnPump.Q_max
@@ -824,11 +837,10 @@ sensor_TKN1.TKN[2]
 sensor_COD1.In.Q
 sensor_COD1.COD
 sensor_TSS1.In.Q
+sensor_TSS1.In.So
 sensor_TSS1.TSS
-Constant3.k
 sensor_AE.Kla3
 sensor_AE.Kla4
-sensor_AE.Kla5
 sensor_AE.AE
 sensor_AE.der(AE)
 sensor_AE.T
@@ -837,6 +849,9 @@ sensor_PE.PE
 sensor_PE.der(PE)
 sensor_PE.T
 sensor_PE.der(T)
+sensor_EQ.In.Q
+sensor_EQ.EQ
+sensor_EQ.der(EQ)
 sensor_EQ.Bss
 sensor_EQ.Bcod
 sensor_EQ.Bnkj
@@ -845,8 +860,89 @@ sensor_EQ.Bbod5
 sensor_EQ.iXB
 sensor_EQ.iXP
 sensor_EQ.fp
+sensor_EQ.T
+sensor_EQ.der(T)
+sensor_EQ.SNkje
+sensor_EQ.SSe
+sensor_EQ.BOD
+sensor_EQ.COD
+sensor_IQ.In.Q
+sensor_IQ.In.Si
+sensor_IQ.In.Ss
+sensor_IQ.In.Xi
+sensor_IQ.In.Xs
+sensor_IQ.In.Xbh
+sensor_IQ.In.Xba
+sensor_IQ.In.Xp
+sensor_IQ.In.So
+sensor_IQ.In.Sno
+sensor_IQ.In.Snh
+sensor_IQ.In.Snd
+sensor_IQ.In.Xnd
+sensor_IQ.In.Salk
+sensor_IQ.Q
+sensor_IQ.IQ
+sensor_IQ.der(IQ)
+sensor_IQ.Bss
+sensor_IQ.Bcod
+sensor_IQ.Bnkj
+sensor_IQ.Bno
+sensor_IQ.Bbod5
+sensor_IQ.iXB
+sensor_IQ.iXP
+sensor_IQ.fp
+sensor_IQ.T
+sensor_IQ.der(T)
+sensor_IQ.SNkje
+sensor_IQ.SSe
+sensor_IQ.BOD
+sensor_IQ.COD
+sensor_Q1.In.Q
+sensor_Q1.In.Si
+sensor_Q1.In.Ss
+sensor_Q1.In.Xi
+sensor_Q1.In.Xs
+sensor_Q1.In.Xbh
+sensor_Q1.In.Xba
+sensor_Q1.In.Xp
+sensor_Q1.In.So
+sensor_Q1.In.Sno
+sensor_Q1.In.Snh
+sensor_Q1.In.Snd
+sensor_Q1.In.Xnd
+sensor_Q1.In.Salk
+sensor_Q1.Out.Q
+sensor_Q1.Out.Si
+sensor_Q1.Out.Ss
+sensor_Q1.Out.Xi
+sensor_Q1.Out.Xs
+sensor_Q1.Out.Xbh
+sensor_Q1.Out.Xba
+sensor_Q1.Out.Xp
+sensor_Q1.Out.So
+sensor_Q1.Out.Sno
+sensor_Q1.Out.Snh
+sensor_Q1.Out.Snd
+sensor_Q1.Out.Xnd
+sensor_Q1.Out.Salk
+sensor_Q1.Q
+sensor_SP.In.Q
+sensor_SP.SP
+sensor_SP.der(SP)
+sensor_SP.T
+sensor_SP.der(T)
+sensor_ME.Kla3
+sensor_ME.Kla4
+sensor_ME.ME
+sensor_ME.der(ME)
+sensor_ME.T
+sensor_ME.der(T)
+sensor_ME.V
+sensor_OCI.OCI
+Constant1.k
+Constant3.k
 
-double initialValue(742,6)
+double initialValue(838,6)
   0       0                  0       0                  6  388   # Effluent.In.Q
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xi
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xs
@@ -854,6 +950,7 @@ double initialValue(742,6)
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xba
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xp
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xnd
+  0       0                  0       0                  6  388   # Effluent.MeasurePort.Q
   0       0                  0       0                  6  388   # WasteSludge.In.Q
   0       0                  0 1.0000000000000000E+100  6  260   # WasteSludge.In.Xi
   0       0                  0 1.0000000000000000E+100  6  260   # WasteSludge.In.Xs
@@ -874,6 +971,7 @@ double initialValue(742,6)
  -1    3000                  0 1.0000000000000000E+100  1  280   # Settler.Xt
   0       0                  0 1.0000000000000000E+100  6  256   # Settler.Xf
   0       0                  0       0                  6  388   # Settler.Feed.Q
+  0       2                  0 1.0000000000000000E+100  6  260   # Settler.Feed.So
   0       0                  0       0                  6  388   # Settler.Return.Q
   0       0                  0 1.0000000000000000E+100  6  260   # Settler.Return.Xi
   0       0                  0 1.0000000000000000E+100  6  260   # Settler.Return.Xs
@@ -1002,6 +1100,7 @@ double initialValue(742,6)
  -1       0                  0 1.0000000000000000E+100  2  280   # Settler.S6.Salk
   0       0                  0       0                  3  256   # Settler.S6.der(Salk)
   0       0                  0       0                  6  388   # Settler.S6.Up.SedFlux
+  0       2                  0 1.0000000000000000E+100  6  260   # Settler.S6.In.So
   0       0                  0       0                  6  256   # Settler.S7.zm
   0       0                  0       0                  6  256   # Settler.S7.Asc
  -1       0                  0 1.0000000000000000E+100  2  280   # Settler.S7.X
@@ -1086,26 +1185,29 @@ double initialValue(742,6)
   0       0                  0       0                  3  256   # Settler.S10.der(Salk)
   0       0                  0 1.0000000000000000E+100  6  256   # Settler.S10.Xt
   0       0                  0       0                  6  388   # divider.In.Q
+  0       2                  0 1.0000000000000000E+100  6  260   # divider.In.So
+  0       2                  0 1.0000000000000000E+100  6  260   # divider.Out1.So
   0       0                  0       0                  6  388   # divider.Out2.Q
- -1 6.7000000000000004E-001  0       0                  1  280   # tank5.Y_h
- -1 2.3999999999999999E-001  0       0                  1  280   # tank5.Y_a
- -1 8.0000000000000002E-002  0       0                  1  280   # tank5.f_p
- -1 8.0000000000000002E-002  0       0                  1  280   # tank5.i_xb
- -1 5.9999999999999998E-002  0       0                  1  280   # tank5.i_xp
+  0       2                  0 1.0000000000000000E+100  6  260   # divider.Out2.So
+ -1  6.7000000000000004E-01  0       0                  1  280   # tank5.Y_h
+ -1  2.3999999999999999E-01  0       0                  1  280   # tank5.Y_a
+ -1  8.0000000000000002E-02  0       0                  1  280   # tank5.f_p
+ -1  8.0000000000000002E-02  0       0                  1  280   # tank5.i_xb
+ -1  5.9999999999999998E-02  0       0                  1  280   # tank5.i_xp
   0       1                  0       0                  6  256   # tank5.K_nh
  -1       4                  0       0                  1  280   # tank5.mu_h_T
- -1 2.9999999999999999E-001  0       0                  1  280   # tank5.b_h_T
- -1 5.0000000000000000E-001  0       0                  1  280   # tank5.mu_a_T
- -1 5.0000000000000003E-002  0       0                  1  280   # tank5.b_a_T
- -1 5.0000000000000003E-002  0       0                  1  280   # tank5.k_a_T
+ -1  2.9999999999999999E-01  0       0                  1  280   # tank5.b_h_T
+ -1  5.0000000000000000E-01  0       0                  1  280   # tank5.mu_a_T
+ -1  5.0000000000000003E-02  0       0                  1  280   # tank5.b_a_T
+ -1  5.0000000000000003E-02  0       0                  1  280   # tank5.k_a_T
  -1       3                  0       0                  1  280   # tank5.k_h_T
- -1 1.0000000000000001E-001  0       0                  1  280   # tank5.K_x_T
+ -1  1.0000000000000001E-01  0       0                  1  280   # tank5.K_x_T
  -1      10                  0       0                  1  280   # tank5.K_s
- -1 2.0000000000000001E-001  0       0                  1  280   # tank5.K_oh
- -1 5.0000000000000000E-001  0       0                  1  280   # tank5.K_no
- -1 4.0000000000000002E-001  0       0                  1  280   # tank5.K_oa
- -1 8.0000000000000004E-001  0       0                  1  280   # tank5.ny_g
- -1 8.0000000000000004E-001  0       0                  1  280   # tank5.ny_h
+ -1  2.0000000000000001E-01  0       0                  1  280   # tank5.K_oh
+ -1  5.0000000000000000E-01  0       0                  1  280   # tank5.K_no
+ -1  4.0000000000000002E-01  0       0                  1  280   # tank5.K_oa
+ -1  8.0000000000000004E-01  0       0                  1  280   # tank5.ny_g
+ -1  8.0000000000000004E-01  0       0                  1  280   # tank5.ny_h
  -1       0                  0 1.0000000000000000E+100  2  280   # tank5.Si
   0       0                  0       0                  3  256   # tank5.der(Si)
  -1       0                  0 1.0000000000000000E+100  2  280   # tank5.Ss
@@ -1120,8 +1222,8 @@ double initialValue(742,6)
   0       0                  0       0                  3  256   # tank5.der(Xba)
  -1       0                  0 1.0000000000000000E+100  2  280   # tank5.Xp
   0       0                  0       0                  3  256   # tank5.der(Xp)
- -1       0                  0 1.0000000000000000E+100  2  280   # tank5.So
-  0       0                  0       0                  3  256   # tank5.der(So)
+  0       2                  0 1.0000000000000000E+100  6  256   # tank5.So
+  0       0                  0       0                  6  256   # tank5.der(So)
  -1       0                  0 1.0000000000000000E+100  2  280   # tank5.Sno
   0       0                  0       0                  3  256   # tank5.der(Sno)
  -1       0                  0 1.0000000000000000E+100  2  280   # tank5.Snh
@@ -1165,31 +1267,33 @@ double initialValue(742,6)
   0       0                  0       0                  6  256   # tank5.inputXnd
   0       0                  0       0                  6  256   # tank5.inputSalk
   0       0                  0       0                  6  256   # tank5.aeration
+  0       2                  0 1.0000000000000000E+100  6  260   # tank5.Out.So
   0       0                  0       0                  6  388   # tank5.MeasurePort.Q
+  0       2                  0 1.0000000000000000E+100  6  260   # tank5.MeasurePort.So
  -1    1333                  0       0                  1  280   # tank5.V
  -1       4                  0       0                  1  280   # tank5.de
   0       8                  0 1.0000000000000000E+100  6  256   # tank5.So_sat
   0       0                  0       0                  6  388   # tank5.AirIn.Q_air
-  0      84                  0       0                  6  256   # tank5.Kla
- -1 6.7000000000000004E-001  0       0                  1  280   # tank4.Y_h
- -1 2.3999999999999999E-001  0       0                  1  280   # tank4.Y_a
- -1 8.0000000000000002E-002  0       0                  1  280   # tank4.f_p
- -1 8.0000000000000002E-002  0       0                  1  280   # tank4.i_xb
- -1 5.9999999999999998E-002  0       0                  1  280   # tank4.i_xp
+  0       0                  0       0                  6  256   # tank5.Kla
+ -1  6.7000000000000004E-01  0       0                  1  280   # tank4.Y_h
+ -1  2.3999999999999999E-01  0       0                  1  280   # tank4.Y_a
+ -1  8.0000000000000002E-02  0       0                  1  280   # tank4.f_p
+ -1  8.0000000000000002E-02  0       0                  1  280   # tank4.i_xb
+ -1  5.9999999999999998E-02  0       0                  1  280   # tank4.i_xp
   0       1                  0       0                  6  256   # tank4.K_nh
  -1       4                  0       0                  1  280   # tank4.mu_h_T
- -1 2.9999999999999999E-001  0       0                  1  280   # tank4.b_h_T
- -1 5.0000000000000000E-001  0       0                  1  280   # tank4.mu_a_T
- -1 5.0000000000000003E-002  0       0                  1  280   # tank4.b_a_T
- -1 5.0000000000000003E-002  0       0                  1  280   # tank4.k_a_T
+ -1  2.9999999999999999E-01  0       0                  1  280   # tank4.b_h_T
+ -1  5.0000000000000000E-01  0       0                  1  280   # tank4.mu_a_T
+ -1  5.0000000000000003E-02  0       0                  1  280   # tank4.b_a_T
+ -1  5.0000000000000003E-02  0       0                  1  280   # tank4.k_a_T
  -1       3                  0       0                  1  280   # tank4.k_h_T
- -1 1.0000000000000001E-001  0       0                  1  280   # tank4.K_x_T
+ -1  1.0000000000000001E-01  0       0                  1  280   # tank4.K_x_T
  -1      10                  0       0                  1  280   # tank4.K_s
- -1 2.0000000000000001E-001  0       0                  1  280   # tank4.K_oh
- -1 5.0000000000000000E-001  0       0                  1  280   # tank4.K_no
- -1 4.0000000000000002E-001  0       0                  1  280   # tank4.K_oa
- -1 8.0000000000000004E-001  0       0                  1  280   # tank4.ny_g
- -1 8.0000000000000004E-001  0       0                  1  280   # tank4.ny_h
+ -1  2.0000000000000001E-01  0       0                  1  280   # tank4.K_oh
+ -1  5.0000000000000000E-01  0       0                  1  280   # tank4.K_no
+ -1  4.0000000000000002E-01  0       0                  1  280   # tank4.K_oa
+ -1  8.0000000000000004E-01  0       0                  1  280   # tank4.ny_g
+ -1  8.0000000000000004E-01  0       0                  1  280   # tank4.ny_h
  -1       0                  0 1.0000000000000000E+100  2  280   # tank4.Si
   0       0                  0       0                  3  256   # tank4.der(Si)
  -1       0                  0 1.0000000000000000E+100  2  280   # tank4.Ss
@@ -1255,25 +1359,25 @@ double initialValue(742,6)
   0       8                  0 1.0000000000000000E+100  6  256   # tank4.So_sat
   0       0                  0       0                  6  388   # tank4.AirIn.Q_air
   0     240                  0       0                  6  256   # tank4.Kla
- -1 6.7000000000000004E-001  0       0                  1  280   # tank3.Y_h
- -1 2.3999999999999999E-001  0       0                  1  280   # tank3.Y_a
- -1 8.0000000000000002E-002  0       0                  1  280   # tank3.f_p
- -1 8.0000000000000002E-002  0       0                  1  280   # tank3.i_xb
- -1 5.9999999999999998E-002  0       0                  1  280   # tank3.i_xp
+ -1  6.7000000000000004E-01  0       0                  1  280   # tank3.Y_h
+ -1  2.3999999999999999E-01  0       0                  1  280   # tank3.Y_a
+ -1  8.0000000000000002E-02  0       0                  1  280   # tank3.f_p
+ -1  8.0000000000000002E-02  0       0                  1  280   # tank3.i_xb
+ -1  5.9999999999999998E-02  0       0                  1  280   # tank3.i_xp
   0       1                  0       0                  6  256   # tank3.K_nh
  -1       4                  0       0                  1  280   # tank3.mu_h_T
- -1 2.9999999999999999E-001  0       0                  1  280   # tank3.b_h_T
- -1 5.0000000000000000E-001  0       0                  1  280   # tank3.mu_a_T
- -1 5.0000000000000003E-002  0       0                  1  280   # tank3.b_a_T
- -1 5.0000000000000003E-002  0       0                  1  280   # tank3.k_a_T
+ -1  2.9999999999999999E-01  0       0                  1  280   # tank3.b_h_T
+ -1  5.0000000000000000E-01  0       0                  1  280   # tank3.mu_a_T
+ -1  5.0000000000000003E-02  0       0                  1  280   # tank3.b_a_T
+ -1  5.0000000000000003E-02  0       0                  1  280   # tank3.k_a_T
  -1       3                  0       0                  1  280   # tank3.k_h_T
- -1 1.0000000000000001E-001  0       0                  1  280   # tank3.K_x_T
+ -1  1.0000000000000001E-01  0       0                  1  280   # tank3.K_x_T
  -1      10                  0       0                  1  280   # tank3.K_s
- -1 2.0000000000000001E-001  0       0                  1  280   # tank3.K_oh
- -1 5.0000000000000000E-001  0       0                  1  280   # tank3.K_no
- -1 4.0000000000000002E-001  0       0                  1  280   # tank3.K_oa
- -1 8.0000000000000004E-001  0       0                  1  280   # tank3.ny_g
- -1 8.0000000000000004E-001  0       0                  1  280   # tank3.ny_h
+ -1  2.0000000000000001E-01  0       0                  1  280   # tank3.K_oh
+ -1  5.0000000000000000E-01  0       0                  1  280   # tank3.K_no
+ -1  4.0000000000000002E-01  0       0                  1  280   # tank3.K_oa
+ -1  8.0000000000000004E-01  0       0                  1  280   # tank3.ny_g
+ -1  8.0000000000000004E-01  0       0                  1  280   # tank3.ny_h
  -1       0                  0 1.0000000000000000E+100  2  280   # tank3.Si
   0       0                  0       0                  3  256   # tank3.der(Si)
  -1       0                  0 1.0000000000000000E+100  2  280   # tank3.Ss
@@ -1339,25 +1443,25 @@ double initialValue(742,6)
   0       8                  0 1.0000000000000000E+100  6  256   # tank3.So_sat
   0       0                  0       0                  6  388   # tank3.AirIn.Q_air
   0     240                  0       0                  6  256   # tank3.Kla
- -1 6.7000000000000004E-001  0       0                  1  280   # tank2.Y_h
- -1 2.3999999999999999E-001  0       0                  1  280   # tank2.Y_a
- -1 8.0000000000000002E-002  0       0                  1  280   # tank2.f_p
- -1 8.0000000000000002E-002  0       0                  1  280   # tank2.i_xb
- -1 5.9999999999999998E-002  0       0                  1  280   # tank2.i_xp
+ -1  6.7000000000000004E-01  0       0                  1  280   # tank2.Y_h
+ -1  2.3999999999999999E-01  0       0                  1  280   # tank2.Y_a
+ -1  8.0000000000000002E-02  0       0                  1  280   # tank2.f_p
+ -1  8.0000000000000002E-02  0       0                  1  280   # tank2.i_xb
+ -1  5.9999999999999998E-02  0       0                  1  280   # tank2.i_xp
   0       1                  0       0                  6  256   # tank2.K_nh
  -1       4                  0       0                  1  280   # tank2.mu_h_T
- -1 2.9999999999999999E-001  0       0                  1  280   # tank2.b_h_T
- -1 5.0000000000000000E-001  0       0                  1  280   # tank2.mu_a_T
- -1 5.0000000000000003E-002  0       0                  1  280   # tank2.b_a_T
- -1 5.0000000000000003E-002  0       0                  1  280   # tank2.k_a_T
+ -1  2.9999999999999999E-01  0       0                  1  280   # tank2.b_h_T
+ -1  5.0000000000000000E-01  0       0                  1  280   # tank2.mu_a_T
+ -1  5.0000000000000003E-02  0       0                  1  280   # tank2.b_a_T
+ -1  5.0000000000000003E-02  0       0                  1  280   # tank2.k_a_T
  -1       3                  0       0                  1  280   # tank2.k_h_T
- -1 1.0000000000000001E-001  0       0                  1  280   # tank2.K_x_T
+ -1  1.0000000000000001E-01  0       0                  1  280   # tank2.K_x_T
  -1      10                  0       0                  1  280   # tank2.K_s
- -1 2.0000000000000001E-001  0       0                  1  280   # tank2.K_oh
- -1 5.0000000000000000E-001  0       0                  1  280   # tank2.K_no
- -1 4.0000000000000002E-001  0       0                  1  280   # tank2.K_oa
- -1 8.0000000000000004E-001  0       0                  1  280   # tank2.ny_g
- -1 8.0000000000000004E-001  0       0                  1  280   # tank2.ny_h
+ -1  2.0000000000000001E-01  0       0                  1  280   # tank2.K_oh
+ -1  5.0000000000000000E-01  0       0                  1  280   # tank2.K_no
+ -1  4.0000000000000002E-01  0       0                  1  280   # tank2.K_oa
+ -1  8.0000000000000004E-01  0       0                  1  280   # tank2.ny_g
+ -1  8.0000000000000004E-01  0       0                  1  280   # tank2.ny_h
  -1       0                  0 1.0000000000000000E+100  2  280   # tank2.Si
   0       0                  0       0                  3  256   # tank2.der(Si)
  -1       0                  0 1.0000000000000000E+100  2  280   # tank2.Ss
@@ -1419,25 +1523,25 @@ double initialValue(742,6)
   0       0                  0       0                  6  256   # tank2.aeration
   0       0                  0       0                  6  388   # tank2.MeasurePort.Q
  -1    1000                  0       0                  1  280   # tank2.V
- -1 6.7000000000000004E-001  0       0                  1  280   # tank1.Y_h
- -1 2.3999999999999999E-001  0       0                  1  280   # tank1.Y_a
- -1 8.0000000000000002E-002  0       0                  1  280   # tank1.f_p
- -1 8.0000000000000002E-002  0       0                  1  280   # tank1.i_xb
- -1 5.9999999999999998E-002  0       0                  1  280   # tank1.i_xp
+ -1  6.7000000000000004E-01  0       0                  1  280   # tank1.Y_h
+ -1  2.3999999999999999E-01  0       0                  1  280   # tank1.Y_a
+ -1  8.0000000000000002E-02  0       0                  1  280   # tank1.f_p
+ -1  8.0000000000000002E-02  0       0                  1  280   # tank1.i_xb
+ -1  5.9999999999999998E-02  0       0                  1  280   # tank1.i_xp
   0       1                  0       0                  6  256   # tank1.K_nh
  -1       4                  0       0                  1  280   # tank1.mu_h_T
- -1 2.9999999999999999E-001  0       0                  1  280   # tank1.b_h_T
- -1 5.0000000000000000E-001  0       0                  1  280   # tank1.mu_a_T
- -1 5.0000000000000003E-002  0       0                  1  280   # tank1.b_a_T
- -1 5.0000000000000003E-002  0       0                  1  280   # tank1.k_a_T
+ -1  2.9999999999999999E-01  0       0                  1  280   # tank1.b_h_T
+ -1  5.0000000000000000E-01  0       0                  1  280   # tank1.mu_a_T
+ -1  5.0000000000000003E-02  0       0                  1  280   # tank1.b_a_T
+ -1  5.0000000000000003E-02  0       0                  1  280   # tank1.k_a_T
  -1       3                  0       0                  1  280   # tank1.k_h_T
- -1 1.0000000000000001E-001  0       0                  1  280   # tank1.K_x_T
+ -1  1.0000000000000001E-01  0       0                  1  280   # tank1.K_x_T
  -1      10                  0       0                  1  280   # tank1.K_s
- -1 2.0000000000000001E-001  0       0                  1  280   # tank1.K_oh
- -1 5.0000000000000000E-001  0       0                  1  280   # tank1.K_no
- -1 4.0000000000000002E-001  0       0                  1  280   # tank1.K_oa
- -1 8.0000000000000004E-001  0       0                  1  280   # tank1.ny_g
- -1 8.0000000000000004E-001  0       0                  1  280   # tank1.ny_h
+ -1  2.0000000000000001E-01  0       0                  1  280   # tank1.K_oh
+ -1  5.0000000000000000E-01  0       0                  1  280   # tank1.K_no
+ -1  4.0000000000000002E-01  0       0                  1  280   # tank1.K_oa
+ -1  8.0000000000000004E-01  0       0                  1  280   # tank1.ny_g
+ -1  8.0000000000000004E-01  0       0                  1  280   # tank1.ny_h
  -1       0                  0 1.0000000000000000E+100  2  280   # tank1.Si
   0       0                  0       0                  3  256   # tank1.der(Si)
  -1       0                  0 1.0000000000000000E+100  2  280   # tank1.Ss
@@ -1514,37 +1618,42 @@ double initialValue(742,6)
  -1    1000                  0       0                  1  280   # tank1.V
   0   18446                  0       0                  6  388   # mixer.In1.Q
   0      30                  0 1.0000000000000000E+100  6  260   # mixer.In1.Si
-  0 6.9500000000000000E+001  0 1.0000000000000000E+100  6  260   # mixer.In1.Ss
-  0 5.1200000000000003E+001  0 1.0000000000000000E+100  6  260   # mixer.In1.Xi
-  0 2.0231999999999999E+002  0 1.0000000000000000E+100  6  260   # mixer.In1.Xs
-  0 2.8170000000000002E+001  0 1.0000000000000000E+100  6  260   # mixer.In1.Xbh
+  0  6.9500000000000000E+01  0 1.0000000000000000E+100  6  260   # mixer.In1.Ss
+  0  5.1200000000000003E+01  0 1.0000000000000000E+100  6  260   # mixer.In1.Xi
+  0  2.0231999999999999E+02  0 1.0000000000000000E+100  6  260   # mixer.In1.Xs
+  0  2.8170000000000002E+01  0 1.0000000000000000E+100  6  260   # mixer.In1.Xbh
   0       0                  0 1.0000000000000000E+100  6  260   # mixer.In1.Xba
   0       0                  0 1.0000000000000000E+100  6  260   # mixer.In1.Xp
   0       0                  0 1.0000000000000000E+100  6  260   # mixer.In1.So
   0       0                  0 1.0000000000000000E+100  6  260   # mixer.In1.Sno
-  0 3.1559999999999999E+001  0 1.0000000000000000E+100  6  260   # mixer.In1.Snh
-  0 6.9500000000000002E+000  0 1.0000000000000000E+100  6  260   # mixer.In1.Snd
-  0 1.0590000000000000E+001  0 1.0000000000000000E+100  6  260   # mixer.In1.Xnd
+  0  3.1559999999999999E+01  0 1.0000000000000000E+100  6  260   # mixer.In1.Snh
+  0  6.9500000000000002E+00  0 1.0000000000000000E+100  6  260   # mixer.In1.Snd
+  0  1.0590000000000000E+01  0 1.0000000000000000E+100  6  260   # mixer.In1.Xnd
   0       7                  0 1.0000000000000000E+100  6  260   # mixer.In1.Salk
+  0       2                  0 1.0000000000000000E+100  6  260   # mixer.In3.So
   0  -18446                  0       0                  6  388   # WWSource.Out.Q
   0      30                  0 1.0000000000000000E+100  6  260   # WWSource.Out.Si
-  0 6.9500000000000000E+001  0 1.0000000000000000E+100  6  260   # WWSource.Out.Ss
-  0 5.1200000000000003E+001  0 1.0000000000000000E+100  6  260   # WWSource.Out.Xi
-  0 2.0231999999999999E+002  0 1.0000000000000000E+100  6  260   # WWSource.Out.Xs
-  0 2.8170000000000002E+001  0 1.0000000000000000E+100  6  260   # WWSource.Out.Xbh
+  0  6.9500000000000000E+01  0 1.0000000000000000E+100  6  260   # WWSource.Out.Ss
+  0  5.1200000000000003E+01  0 1.0000000000000000E+100  6  260   # WWSource.Out.Xi
+  0  2.0231999999999999E+02  0 1.0000000000000000E+100  6  260   # WWSource.Out.Xs
+  0  2.8170000000000002E+01  0 1.0000000000000000E+100  6  260   # WWSource.Out.Xbh
   0       0                  0 1.0000000000000000E+100  6  260   # WWSource.Out.Xba
   0       0                  0 1.0000000000000000E+100  6  260   # WWSource.Out.Xp
   0       0                  0 1.0000000000000000E+100  6  260   # WWSource.Out.So
   0       0                  0 1.0000000000000000E+100  6  260   # WWSource.Out.Sno
-  0 3.1559999999999999E+001  0 1.0000000000000000E+100  6  260   # WWSource.Out.Snh
-  0 6.9500000000000002E+000  0 1.0000000000000000E+100  6  260   # WWSource.Out.Snd
-  0 1.0590000000000000E+001  0 1.0000000000000000E+100  6  260   # WWSource.Out.Xnd
+  0  3.1559999999999999E+01  0 1.0000000000000000E+100  6  260   # WWSource.Out.Snh
+  0  6.9500000000000002E+00  0 1.0000000000000000E+100  6  260   # WWSource.Out.Snd
+  0  1.0590000000000000E+01  0 1.0000000000000000E+100  6  260   # WWSource.Out.Xnd
   0       7                  0 1.0000000000000000E+100  6  260   # WWSource.Out.Salk
   0       0                  0       0                  6  388   # sensor_NO.In.Q
   0       0                  0       0                  6  388   # sensor_O2.In.Q
+  0       2                  0 1.0000000000000000E+100  6  260   # sensor_O2.In.So
+  0       2                  0       0                  6  256   # sensor_O2.So
  -1       0                  0       0                  1  280   # RecyclePump.Q_min
  -1   55338                  0       0                  1  280   # RecyclePump.Q_max
   0       0                  0       0                  6  256   # RecyclePump.H
+  0       2                  0 1.0000000000000000E+100  6  260   # RecyclePump.In.So
+  0       2                  0 1.0000000000000000E+100  6  260   # RecyclePump.Out.So
   0       0                  0       0                  6  256   # RecyclePump.Q
  -1       0                  0       0                  1  280   # ReturnPump.Q_min
  -1   18446                  0       0                  1  280   # ReturnPump.Q_max
@@ -1557,38 +1666,121 @@ double initialValue(742,6)
  -1       1                  0       0                  1  280   # Constant2.k
   0       0                  0       0                  6  388   # sensor_NH1.In.Q
   0       0                  0       0                  6  388   # sensor_NO1.In.Q
- -1 6.7000000000000004E-001  0       0                  1  280   # sensor_TKN1.Y_h
- -1 2.3999999999999999E-001  0       0                  1  280   # sensor_TKN1.Y_a
- -1 8.0000000000000002E-002  0       0                  1  280   # sensor_TKN1.f_p
- -1 8.0000000000000002E-002  0       0                  1  280   # sensor_TKN1.i_xb
- -1 5.9999999999999998E-002  0       0                  1  280   # sensor_TKN1.i_xp
+ -1  6.7000000000000004E-01  0       0                  1  280   # sensor_TKN1.Y_h
+ -1  2.3999999999999999E-01  0       0                  1  280   # sensor_TKN1.Y_a
+ -1  8.0000000000000002E-02  0       0                  1  280   # sensor_TKN1.f_p
+ -1  8.0000000000000002E-02  0       0                  1  280   # sensor_TKN1.i_xb
+ -1  5.9999999999999998E-02  0       0                  1  280   # sensor_TKN1.i_xp
   0       0                  0       0                  6  388   # sensor_TKN1.In.Q
   0       0                  0       0                  6  256   # sensor_TKN1.TKN[1]
   0       0                  0       0                  6  256   # sensor_TKN1.TKN[2]
   0       0                  0       0                  6  388   # sensor_COD1.In.Q
   0       0                  0       0                  6  256   # sensor_COD1.COD
   0       0                  0       0                  6  388   # sensor_TSS1.In.Q
+  0       2                  0 1.0000000000000000E+100  6  260   # sensor_TSS1.In.So
   0       0                  0       0                  6  256   # sensor_TSS1.TSS
- -1   55338                  0       0                  1  280   # Constant3.k
   0     240                  0       0                  6  256   # sensor_AE.Kla3
   0     240                  0       0                  6  256   # sensor_AE.Kla4
-  0      84                  0       0                  6  256   # sensor_AE.Kla5
  -1       0                  0       0                  2  280   # sensor_AE.AE
   0       0                  0       0                  3  256   # sensor_AE.der(AE)
- -1 1.0000000000000000E-003  0       0                  2  280   # sensor_AE.T
+ -1  1.0000000000000000E-03  0       0                  2  280   # sensor_AE.T
   0       0                  0       0                  3  256   # sensor_AE.der(T)
  -1       0                  0       0                  2  280   # sensor_PE.PE
   0       0                  0       0                  3  256   # sensor_PE.der(PE)
- -1 1.0000000000000000E-003  0       0                  2  280   # sensor_PE.T
+ -1  1.0000000000000000E-03  0       0                  2  280   # sensor_PE.T
   0       0                  0       0                  3  256   # sensor_PE.der(T)
+  0       0                  0       0                  6  388   # sensor_EQ.In.Q
+ -1       0                  0       0                  2  280   # sensor_EQ.EQ
+  0       0                  0       0                  3  256   # sensor_EQ.der(EQ)
  -1       2                  0       0                  1  280   # sensor_EQ.Bss
  -1       1                  0       0                  1  280   # sensor_EQ.Bcod
  -1      30                  0       0                  1  280   # sensor_EQ.Bnkj
  -1      10                  0       0                  1  280   # sensor_EQ.Bno
  -1       2                  0       0                  1  280   # sensor_EQ.Bbod5
- -1 8.0000000000000002E-002  0       0                  1  280   # sensor_EQ.iXB
- -1 5.9999999999999998E-002  0       0                  1  280   # sensor_EQ.iXP
- -1 8.0000000000000002E-002  0       0                  1  280   # sensor_EQ.fp
+ -1  8.0000000000000002E-02  0       0                  1  280   # sensor_EQ.iXB
+ -1  5.9999999999999998E-02  0       0                  1  280   # sensor_EQ.iXP
+ -1  8.0000000000000002E-02  0       0                  1  280   # sensor_EQ.fp
+ -1  1.0000000000000000E-03  0       0                  2  280   # sensor_EQ.T
+  0       0                  0       0                  3  256   # sensor_EQ.der(T)
+  0       0                  0       0                  6  256   # sensor_EQ.SNkje
+  0       0                  0       0                  6  256   # sensor_EQ.SSe
+  0       0                  0       0                  6  256   # sensor_EQ.BOD
+  0       0                  0       0                  6  256   # sensor_EQ.COD
+  0       0                  0       0                  6  388   # sensor_IQ.In.Q
+  0      30                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Si
+  0  6.9500000000000000E+01  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Ss
+  0  5.1200000000000003E+01  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xi
+  0  2.0231999999999999E+02  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xs
+  0  2.8170000000000002E+01  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.So
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Sno
+  0  3.1559999999999999E+01  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Snh
+  0  6.9500000000000002E+00  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Snd
+  0  1.0590000000000000E+01  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Xnd
+  0       7                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Salk
+  0   18446                  0       0                  6  256   # sensor_IQ.Q
+ -1       0                  0       0                  2  280   # sensor_IQ.IQ
+  0       0                  0       0                  3  256   # sensor_IQ.der(IQ)
+ -1       2                  0       0                  1  280   # sensor_IQ.Bss
+ -1       1                  0       0                  1  280   # sensor_IQ.Bcod
+ -1      30                  0       0                  1  280   # sensor_IQ.Bnkj
+ -1      10                  0       0                  1  280   # sensor_IQ.Bno
+ -1       2                  0       0                  1  280   # sensor_IQ.Bbod5
+ -1  8.0000000000000002E-02  0       0                  1  280   # sensor_IQ.iXB
+ -1  5.9999999999999998E-02  0       0                  1  280   # sensor_IQ.iXP
+ -1  8.0000000000000002E-02  0       0                  1  280   # sensor_IQ.fp
+ -1  1.0000000000000000E-03  0       0                  2  280   # sensor_IQ.T
+  0       0                  0       0                  3  256   # sensor_IQ.der(T)
+  0       0                  0       0                  6  256   # sensor_IQ.SNkje
+  0  2.1126749999999998E+02  0       0                  6  256   # sensor_IQ.SSe
+  0       0                  0       0                  6  256   # sensor_IQ.BOD
+  0  3.8119000000000000E+02  0       0                  6  256   # sensor_IQ.COD
+  0   18446                  0       0                  6  388   # sensor_Q1.In.Q
+  0      30                  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Si
+  0  6.9500000000000000E+01  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Ss
+  0  5.1200000000000003E+01  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Xi
+  0  2.0231999999999999E+02  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Xs
+  0  2.8170000000000002E+01  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.So
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Sno
+  0  3.1559999999999999E+01  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Snh
+  0  6.9500000000000002E+00  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Snd
+  0  1.0590000000000000E+01  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Xnd
+  0       7                  0 1.0000000000000000E+100  6  260   # sensor_Q1.In.Salk
+  0  -18446                  0       0                  6  388   # sensor_Q1.Out.Q
+  0      30                  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Si
+  0  6.9500000000000000E+01  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Ss
+  0  5.1200000000000003E+01  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Xi
+  0  2.0231999999999999E+02  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Xs
+  0  2.8170000000000002E+01  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.So
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Sno
+  0  3.1559999999999999E+01  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Snh
+  0  6.9500000000000002E+00  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Snd
+  0  1.0590000000000000E+01  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Xnd
+  0       7                  0 1.0000000000000000E+100  6  260   # sensor_Q1.Out.Salk
+  0   18446                  0       0                  6  256   # sensor_Q1.Q
+  0       0                  0       0                  6  388   # sensor_SP.In.Q
+ -1       0                  0       0                  2  280   # sensor_SP.SP
+  0       0                  0       0                  3  256   # sensor_SP.der(SP)
+ -1  1.0000000000000000E-03  0       0                  2  280   # sensor_SP.T
+  0       0                  0       0                  3  256   # sensor_SP.der(T)
+  0     240                  0       0                  6  256   # sensor_ME.Kla3
+  0     240                  0       0                  6  256   # sensor_ME.Kla4
+ -1       0                  0       0                  2  280   # sensor_ME.ME
+  0       0                  0       0                  3  256   # sensor_ME.der(ME)
+ -1  1.0000000000000000E-03  0       0                  2  280   # sensor_ME.T
+  0       0                  0       0                  3  256   # sensor_ME.der(T)
+ -1    1333                  0       0                  1  280   # sensor_ME.V
+  0       0                  0       0                  6  256   # sensor_OCI.OCI
+ -1   55338                  0       0                  1  280   # Constant1.k
+ -1       1                  0       0                  1  280   # Constant3.k
 
 
 # Matrix with 6 columns defining the initial value calculation
@@ -1615,10 +1807,10 @@ double initialValue(742,6)
 #           = 4: output.
 #           = 5: input.
 #           = 6: auxiliary variable.
-# column 6: Data type of variable.
-#           = 0: real.
-#           = 1: boolean.
-#           = 2: integer.
+# column 6: Data type of variable and flags according to dsBaseType
+#  <value>&3= 0: real.
+#  <value>&3= 1: boolean.
+#  <value>&3= 2: integer.
 #
 # Initial values are calculated according to the following procedure:
 #
@@ -1639,7 +1831,7 @@ double initialValue(742,6)
 #   nominal value (and maybe minimum and maximum values given in 
 #   column 3 and 4). If these values are zero, scale(i)=1 is used).
 #
-char initialDescription(742,72)
+char initialDescription(838,72)
 [m3/d]
 [mg/l]
 [mg/l]
@@ -1647,6 +1839,7 @@ char initialDescription(742,72)
 [mg/l]
 [mg/l]
 [mg/l]
+[m3/d]
 [m3/d]
 [mg/l]
 [mg/l]
@@ -1667,6 +1860,7 @@ area of secondary clarifier [m2]
 threshold for X [mg/l]
 [mg/l]
 [m3/d]
+[mg/l]
 [m3/d]
 [mg/l]
 [mg/l]
@@ -1795,6 +1989,7 @@ der(Soluble biodegradable organic nitrogen) [mg/(l.s)]
 Alkalinity [mmol/l]
 der(Alkalinity) [m-3.s-1.mol]
 [g/(m2*d)]
+[mg/l]
 [m]
 [m2]
 total sludge concentration in m-th layer [mg/l]
@@ -1879,7 +2074,10 @@ Alkalinity [mmol/l]
 der(Alkalinity) [m-3.s-1.mol]
 [mg/l]
 [m3/d]
+[mg/l]
+[mg/l]
 [m3/d]
+[mg/l]
 Heterotrophic Yield [g Xbh COD formed/(g COD utilised)] []
 Autotrophic Yield [g Xba COD formed/(g N utilised)] []
 Fraction of biomass to particulate products [-] []
@@ -1958,7 +2156,9 @@ der(Alkalinity) [m-3.s-1.mol]
 
 
 
+[mg/l]
 [m3/d]
+[mg/l]
 Volume of nitrification tank [m3]
 depth of aeration [m]
 Dissolved oxygen saturation [mg/l]
@@ -2319,6 +2519,7 @@ Volume of denitrification tank [m3]
 [mg/l]
 [mg/l]
 [mmol/l]
+[mg/l]
 [m3/d]
 [mg/l]
 [mg/l]
@@ -2335,9 +2536,13 @@ Volume of denitrification tank [m3]
 [mmol/l]
 [m3/d]
 [m3/d]
+[mg/l]
+
 minimum pump capacity [m3/d]
 maximum pump capacity [m3/d]
 
+[mg/l]
+[mg/l]
 
 minimum pump capacity [m3/d]
 maximum pump capacity [m3/d]
@@ -2361,25 +2566,108 @@ Fraction nitrogen in particulate products [g N/(g COD)] []
 [m3/d]
 
 [m3/d]
+[mg/l]
+
+
+
+
+
+
+
+
+
+
+
+[m3/d]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mmol/l]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mmol/l]
+[m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mmol/l]
+
+[m3/d]
+
+
+
+
+
+
+
+
+
+
+
 
 Constant output value
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Constant output value
 

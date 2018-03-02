@@ -921,8 +921,8 @@ Parameters:
     ASM1.mixer3 mixer annotation (Placement(transformation(extent={{-106,19},{
               -86,39}})));
     WasteWater.ASM1.WWSource2
-                  WWSource annotation (Placement(transformation(extent={{-90,75},
-              {-70,95}})));
+                  WWSource annotation (Placement(transformation(extent={{-126,77},
+              {-106,97}})));
     ASM1.sensor_NO sensor_NO annotation (Placement(transformation(extent={{-44,45},
               {-24,65}})));
     ASM1.sensor_O2 sensor_O2 annotation (Placement(transformation(extent={{-1,22},
@@ -965,7 +965,7 @@ Parameters:
     connect(mixer.Out, tank1.In) annotation (Line(points={{-86,28.6},{-82,28.6},
             {-82,29},{-78,29}}));
     connect(mixer.In1, WWSource.Out) annotation (Line(points={{-106,32.5},{-106,
-            71},{-70,71},{-70,78},{-70.2,78}}));
+            80},{-106.2,80}}));
     connect(sensor_NO.In, tank2.MeasurePort) annotation (Line(points={{-34,45},
             {-34,33.5},{-34.5,33.5}}));
     connect(divider.Out2, RecyclePump.In) annotation (Line(points={{38,-0.5},{
@@ -1010,7 +1010,7 @@ Parameters:
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-120,-100},{120,105}},
+          extent={{-130,-100},{120,105}},
           grid={1,1}), graphics),
       Documentation(info="This ASM1 plant consists of 2 denitrification tanks (tank1 and tank2),
 3 nitrification tanks (tank3 - tank5) and a secondary clarifier by Takacs.
@@ -1043,7 +1043,8 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
         __Dymola_NumberOfIntervals=10000,
         Tolerance=1e-007,
         __Dymola_Algorithm=""),
-      __Dymola_experimentSetupOutput);
+      __Dymola_experimentSetupOutput,
+      Icon(coordinateSystem(extent={{-130,-100},{120,105}})));
   end BSM1;
 
   class BSM1_2 "COST Benchmark WWTP Configuration"
@@ -1147,7 +1148,7 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
     connect(sensor_NO.In, tank2.MeasurePort) annotation (Line(points={{-76,29},
             {-76,26.5},{-75.5,26.5}}));
     connect(divider.Out2, RecyclePump.In) annotation (Line(points={{35,-6.5},{
-            34,-6.5},{34,-21.3},{-138,-21.3}}));
+            35,-21.3},{-138,-21.3}}));
     connect(Settler.Return, ReturnPump.In) annotation (Line(points={{54,-13.6},
             {54,-77.3},{-49,-77.3}}));
     connect(WastePump.In, Settler.Waste) annotation (Line(points={{83,-70.3},{
@@ -1293,8 +1294,7 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
         color={0,0,0},
         smooth=Smooth.None));
     connect(ReturnPump.Out, mixer.In2) annotation (Line(
-        points={{-69,-71.2},{-105,-71.2},{-105,-71},{-165,-71},{-165,21},{-151,
-            21},{-151,21.5}},
+        points={{-69,-71.2},{-69,-71},{-165,-71},{-165,21},{-151,21},{-151,21.5}},
         color={0,0,0},
         smooth=Smooth.None));
     annotation (

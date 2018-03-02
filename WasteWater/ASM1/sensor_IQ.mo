@@ -36,7 +36,6 @@ equation
    der(IQ*T) =  1/1000*(Bss*SSe+Bcod*COD+Bnkj*SNkje+Bno*In.Sno+Bbod5*BOD)*Q;
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics), Icon(coordinateSystem(
-          preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics
-        ={
+          preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-88,0},{-50,0}})}));
 end sensor_IQ;
