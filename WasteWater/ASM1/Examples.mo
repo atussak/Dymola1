@@ -1058,8 +1058,6 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
               {196,-13}})));
     ASM1.SludgeSink WasteSludge annotation (Placement(transformation(extent={{177,-72},
               {197,-52}})));
-    ASM1.SecClarModTakacs Settler annotation (Placement(transformation(extent={{47,-14},
-              {67,6}})));
     ASM1.divider2 divider annotation (Placement(transformation(extent={{15,-15},
               {35,5}})));
     WasteWater.ASM1.nitri3
@@ -1135,9 +1133,9 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
           origin={-130.5,-15.5})));
     Modelica.Blocks.Sources.Constant Constant3 annotation (Placement(
           transformation(extent={{-35,-75},{-42,-68}})));
+    WasteWater.ASM1.Settlergurl settlergurl
+      annotation (Placement(transformation(extent={{39,-29},{75,7}})));
   equation
-    connect(divider.Out1, Settler.Feed) annotation (Line(points={{35,-2.4},{39,
-            -2.4},{39,-2.6},{47,-2.6}}));
     connect(tank5.Out, divider.In) annotation (Line(points={{9,-5},{12,-5},{12,
             -4.7},{15,-4.7}}));
     connect(tank4.Out, tank5.In) annotation (Line(points={{-17,-5},{-11,-5}}));
@@ -1149,22 +1147,10 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
             {-76,26.5},{-75.5,26.5}}));
     connect(divider.Out2, RecyclePump.In) annotation (Line(points={{35,-6.5},{
             35,-21.3},{-138,-21.3}}));
-    connect(Settler.Return, ReturnPump.In) annotation (Line(points={{54,-13.6},
-            {54,-77.3},{-49,-77.3}}));
-    connect(WastePump.In, Settler.Waste) annotation (Line(points={{83,-70.3},{
-            60,-70.3},{60,-13.6}}));
     connect(WastePump.u, Constant2.y)
       annotation (Line(points={{84.1,-64.5},{84.1,-64.5},{76.35,-64.5}},
                                                                      color={0,0,
             255}));
-    connect(sensor_NH1.In, Settler.Effluent) annotation (Line(points={{96,12},{
-            96,1.7},{67.2,1.7}}));
-    connect(sensor_NO1.In, Settler.Effluent) annotation (Line(points={{115,12},
-            {115,1.7},{67.2,1.7}}));
-    connect(sensor_TKN1.In, Settler.Effluent) annotation (Line(points={{135,12},
-            {135,1.7},{67.2,1.7}}));
-    connect(sensor_COD1.In, Settler.Effluent) annotation (Line(points={{153,12},
-            {153,1.7},{67.2,1.7}}));
     connect(tank5.MeasurePort, sensor_O2.In) annotation (Line(points={{4.5,-0.5},
             {4.5,11}}));
     connect(sensor_TSS1.In, divider.Out1) annotation (Line(points={{35,11},{35,
@@ -1179,10 +1165,6 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
     connect(sensor_PE.Qa, ReturnPump.Q) annotation (Line(
         points={{-71,-86.4},{-70.9,-86.4},{-70.9,-77.75},{-66.05,-77.75}},
         color={0,0,127},
-        smooth=Smooth.None));
-    connect(sensor_Q.In, Settler.Effluent) annotation (Line(
-        points={{115,-21},{115,1.7},{67.2,1.7}},
-        color={0,0,255},
         smooth=Smooth.None));
     connect(sensor_Q.Out, Effluent.In) annotation (Line(
         points={{135,-21},{176,-21}},
@@ -1297,11 +1279,28 @@ PS: For those who want to reproduce the exact figures from the COST simulation b
         points={{-69,-71.2},{-69,-71},{-165,-71},{-165,21},{-151,21},{-151,21.5}},
         color={0,0,0},
         smooth=Smooth.None));
+    connect(sensor_COD1.In, sensor_Q.In) annotation (Line(points={{153,12},{153,
+            -3},{92.92,-3},{92.92,-21},{115,-21}}, color={0,0,255}));
+    connect(sensor_TKN1.In, sensor_Q.In) annotation (Line(points={{135,12},{135,
+            -3},{92.92,-3},{92.92,-21},{115,-21}}, color={0,0,255}));
+    connect(sensor_NO1.In, sensor_Q.In) annotation (Line(points={{115,12},{115,
+            -3},{92.92,-3},{92.92,-21},{115,-21}}, color={0,0,255}));
+    connect(sensor_NH1.In, sensor_Q.In) annotation (Line(points={{96,12},{96,-3},
+            {92.92,-3},{92.92,-21},{115,-21}}, color={0,0,255}));
+    connect(settlergurl.Feed, divider.Out1) annotation (Line(points={{40.8,-2},{38,
+            -2},{38,-2.4},{35,-2.4}}, color={0,0,255}));
+    connect(settlergurl.Effluent, sensor_Q.In)
+      annotation (Line(points={{72.12,-2},{80,-2},{80,-21},{115,-21}}));
+    connect(settlergurl.Waste, WastePump.In) annotation (Line(points={{72.12,-12.44},
+            {75.52,-12.44},{75.52,-70.3},{83,-70.3}}, color={0,0,0}));
+    connect(settlergurl.Recycle, ReturnPump.In) annotation (Line(points={{72.12,
+            -8.84},{70,-8.84},{70,-23},{68,-23},{68,-77.3},{-49,-77.3}},
+                                                                  color={0,0,0}));
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-170,-110},{230,100}},
-          grid={1,1}), graphics),
+          grid={1,1})),
       Documentation(info="This ASM1 plant consists of 2 denitrification tanks (tank1 and tank2),
 3 nitrification tanks (tank3 - tank5) and a secondary clarifier by Takacs.
 Furthermore there are 2 control loops modelled.

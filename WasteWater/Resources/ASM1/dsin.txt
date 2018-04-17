@@ -9,10 +9,10 @@ Modelica experiment file
 double experiment(7,1)
        0                   # StartTime    Time at which integration starts
                            #              (and linearization and trimming time)
-       1                   # StopTime     Time at which integration stops
+     100                   # StopTime     Time at which integration stops
        0                   # Increment    Communication step size, if > 0
-     500                   # nInterval    Number of communication intervals, if > 0
-  9.9999999999999995E-08   # Tolerance    Relative precision of signals for
+   50000                   # nInterval    Number of communication intervals, if > 0
+  9.9999999999999998E-13   # Tolerance    Relative precision of signals for
                            #              simulation, linearization and trimming
        0                   # MaxFixedStep Maximum step size of fixed step size
                            #              integrators, if > 0.0
@@ -102,14 +102,21 @@ int settings(13,1)
 
 
 #    Names of initial variables
-char initialName(838,22)
+char initialName(679,24)
 Effluent.In.Q
+Effluent.In.Si
+Effluent.In.Ss
 Effluent.In.Xi
 Effluent.In.Xs
 Effluent.In.Xbh
 Effluent.In.Xba
 Effluent.In.Xp
+Effluent.In.So
+Effluent.In.Sno
+Effluent.In.Snh
+Effluent.In.Snd
 Effluent.In.Xnd
+Effluent.In.Salk
 Effluent.MeasurePort.Q
 WasteSludge.In.Q
 WasteSludge.In.Xi
@@ -118,234 +125,9 @@ WasteSludge.In.Xbh
 WasteSludge.In.Xba
 WasteSludge.In.Xp
 WasteSludge.In.Xnd
-Settler.rXi
-Settler.rXs
-Settler.rXbh
-Settler.rXba
-Settler.rXp
-Settler.rXnd
-Settler.hsc
-Settler.n
-Settler.zm
-Settler.Asc
-Settler.Xt
-Settler.Xf
-Settler.Feed.Q
-Settler.Feed.So
-Settler.Return.Q
-Settler.Return.Xi
-Settler.Return.Xs
-Settler.Return.Xbh
-Settler.Return.Xba
-Settler.Return.Xp
-Settler.Return.Xnd
-Settler.S1.zm
-Settler.S1.Asc
-Settler.S1.X
-Settler.S1.der(X)
-Settler.S1.vS
-Settler.S1.Jsm
-Settler.S1.Si
-Settler.S1.der(Si)
-Settler.S1.Ss
-Settler.S1.der(Ss)
-Settler.S1.So
-Settler.S1.der(So)
-Settler.S1.Sno
-Settler.S1.der(Sno)
-Settler.S1.Snh
-Settler.S1.der(Snh)
-Settler.S1.Snd
-Settler.S1.der(Snd)
-Settler.S1.Salk
-Settler.S1.der(Salk)
-Settler.S1.Up.SedFlux
-Settler.S2.zm
-Settler.S2.Asc
-Settler.S2.X
-Settler.S2.der(X)
-Settler.S2.vS
-Settler.S2.Si
-Settler.S2.der(Si)
-Settler.S2.Ss
-Settler.S2.der(Ss)
-Settler.S2.So
-Settler.S2.der(So)
-Settler.S2.Sno
-Settler.S2.der(Sno)
-Settler.S2.Snh
-Settler.S2.der(Snh)
-Settler.S2.Snd
-Settler.S2.der(Snd)
-Settler.S2.Salk
-Settler.S2.der(Salk)
-Settler.S2.Up.SedFlux
-Settler.S3.zm
-Settler.S3.Asc
-Settler.S3.X
-Settler.S3.der(X)
-Settler.S3.vS
-Settler.S3.Si
-Settler.S3.der(Si)
-Settler.S3.Ss
-Settler.S3.der(Ss)
-Settler.S3.So
-Settler.S3.der(So)
-Settler.S3.Sno
-Settler.S3.der(Sno)
-Settler.S3.Snh
-Settler.S3.der(Snh)
-Settler.S3.Snd
-Settler.S3.der(Snd)
-Settler.S3.Salk
-Settler.S3.der(Salk)
-Settler.S3.Up.SedFlux
-Settler.S4.zm
-Settler.S4.Asc
-Settler.S4.X
-Settler.S4.der(X)
-Settler.S4.vS
-Settler.S4.Si
-Settler.S4.der(Si)
-Settler.S4.Ss
-Settler.S4.der(Ss)
-Settler.S4.So
-Settler.S4.der(So)
-Settler.S4.Sno
-Settler.S4.der(Sno)
-Settler.S4.Snh
-Settler.S4.der(Snh)
-Settler.S4.Snd
-Settler.S4.der(Snd)
-Settler.S4.Salk
-Settler.S4.der(Salk)
-Settler.S4.Up.SedFlux
-Settler.S5.zm
-Settler.S5.Asc
-Settler.S5.X
-Settler.S5.der(X)
-Settler.S5.vS
-Settler.S5.Si
-Settler.S5.der(Si)
-Settler.S5.Ss
-Settler.S5.der(Ss)
-Settler.S5.So
-Settler.S5.der(So)
-Settler.S5.Sno
-Settler.S5.der(Sno)
-Settler.S5.Snh
-Settler.S5.der(Snh)
-Settler.S5.Snd
-Settler.S5.der(Snd)
-Settler.S5.Salk
-Settler.S5.der(Salk)
-Settler.S5.Up.SedFlux
-Settler.S6.zm
-Settler.S6.Asc
-Settler.S6.X
-Settler.S6.der(X)
-Settler.S6.vS
-Settler.S6.Si
-Settler.S6.der(Si)
-Settler.S6.Ss
-Settler.S6.der(Ss)
-Settler.S6.So
-Settler.S6.der(So)
-Settler.S6.Sno
-Settler.S6.der(Sno)
-Settler.S6.Snh
-Settler.S6.der(Snh)
-Settler.S6.Snd
-Settler.S6.der(Snd)
-Settler.S6.Salk
-Settler.S6.der(Salk)
-Settler.S6.Up.SedFlux
-Settler.S6.In.So
-Settler.S7.zm
-Settler.S7.Asc
-Settler.S7.X
-Settler.S7.der(X)
-Settler.S7.vS
-Settler.S7.Si
-Settler.S7.der(Si)
-Settler.S7.Ss
-Settler.S7.der(Ss)
-Settler.S7.So
-Settler.S7.der(So)
-Settler.S7.Sno
-Settler.S7.der(Sno)
-Settler.S7.Snh
-Settler.S7.der(Snh)
-Settler.S7.Snd
-Settler.S7.der(Snd)
-Settler.S7.Salk
-Settler.S7.der(Salk)
-Settler.S7.Xt
-Settler.S7.Up.SedFlux
-Settler.S8.zm
-Settler.S8.Asc
-Settler.S8.X
-Settler.S8.der(X)
-Settler.S8.vS
-Settler.S8.Si
-Settler.S8.der(Si)
-Settler.S8.Ss
-Settler.S8.der(Ss)
-Settler.S8.So
-Settler.S8.der(So)
-Settler.S8.Sno
-Settler.S8.der(Sno)
-Settler.S8.Snh
-Settler.S8.der(Snh)
-Settler.S8.Snd
-Settler.S8.der(Snd)
-Settler.S8.Salk
-Settler.S8.der(Salk)
-Settler.S8.Xt
-Settler.S8.Up.SedFlux
-Settler.S9.zm
-Settler.S9.Asc
-Settler.S9.X
-Settler.S9.der(X)
-Settler.S9.vS
-Settler.S9.Si
-Settler.S9.der(Si)
-Settler.S9.Ss
-Settler.S9.der(Ss)
-Settler.S9.So
-Settler.S9.der(So)
-Settler.S9.Sno
-Settler.S9.der(Sno)
-Settler.S9.Snh
-Settler.S9.der(Snh)
-Settler.S9.Snd
-Settler.S9.der(Snd)
-Settler.S9.Salk
-Settler.S9.der(Salk)
-Settler.S9.Xt
-Settler.S9.Up.SedFlux
-Settler.S10.zm
-Settler.S10.Asc
-Settler.S10.X
-Settler.S10.der(X)
-Settler.S10.vS
-Settler.S10.Si
-Settler.S10.der(Si)
-Settler.S10.Ss
-Settler.S10.der(Ss)
-Settler.S10.So
-Settler.S10.der(So)
-Settler.S10.Sno
-Settler.S10.der(Sno)
-Settler.S10.Snh
-Settler.S10.der(Snh)
-Settler.S10.Snd
-Settler.S10.der(Snd)
-Settler.S10.Salk
-Settler.S10.der(Salk)
-Settler.S10.Xt
 divider.In.Q
 divider.In.So
+divider.Out1.Q
 divider.Out1.So
 divider.Out2.Q
 divider.Out2.So
@@ -790,6 +572,7 @@ mixer.In1.Snh
 mixer.In1.Snd
 mixer.In1.Xnd
 mixer.In1.Salk
+mixer.In2.Q
 mixer.In3.So
 WWSource.Out.Q
 WWSource.Out.Si
@@ -825,16 +608,40 @@ WastePump.H
 WastePump.Q
 Constant2.k
 sensor_NH1.In.Q
+sensor_NH1.In.Xi
+sensor_NH1.In.Xs
+sensor_NH1.In.Xbh
+sensor_NH1.In.Xba
+sensor_NH1.In.Xp
+sensor_NH1.In.Xnd
 sensor_NO1.In.Q
+sensor_NO1.In.Xi
+sensor_NO1.In.Xs
+sensor_NO1.In.Xbh
+sensor_NO1.In.Xba
+sensor_NO1.In.Xp
+sensor_NO1.In.Xnd
 sensor_TKN1.Y_h
 sensor_TKN1.Y_a
 sensor_TKN1.f_p
 sensor_TKN1.i_xb
 sensor_TKN1.i_xp
 sensor_TKN1.In.Q
+sensor_TKN1.In.Xi
+sensor_TKN1.In.Xs
+sensor_TKN1.In.Xbh
+sensor_TKN1.In.Xba
+sensor_TKN1.In.Xp
+sensor_TKN1.In.Xnd
 sensor_TKN1.TKN[1]
 sensor_TKN1.TKN[2]
 sensor_COD1.In.Q
+sensor_COD1.In.Xi
+sensor_COD1.In.Xs
+sensor_COD1.In.Xbh
+sensor_COD1.In.Xba
+sensor_COD1.In.Xp
+sensor_COD1.In.Xnd
 sensor_COD1.COD
 sensor_TSS1.In.Q
 sensor_TSS1.In.So
@@ -850,6 +657,12 @@ sensor_PE.der(PE)
 sensor_PE.T
 sensor_PE.der(T)
 sensor_EQ.In.Q
+sensor_EQ.In.Xi
+sensor_EQ.In.Xs
+sensor_EQ.In.Xbh
+sensor_EQ.In.Xba
+sensor_EQ.In.Xp
+sensor_EQ.In.Xnd
 sensor_EQ.EQ
 sensor_EQ.der(EQ)
 sensor_EQ.Bss
@@ -866,6 +679,18 @@ sensor_EQ.SNkje
 sensor_EQ.SSe
 sensor_EQ.BOD
 sensor_EQ.COD
+sensor_Q.In.Xi
+sensor_Q.In.Xs
+sensor_Q.In.Xbh
+sensor_Q.In.Xba
+sensor_Q.In.Xp
+sensor_Q.In.Xnd
+sensor_Q.Out.Xi
+sensor_Q.Out.Xs
+sensor_Q.Out.Xbh
+sensor_Q.Out.Xba
+sensor_Q.Out.Xp
+sensor_Q.Out.Xnd
 sensor_IQ.In.Q
 sensor_IQ.In.Si
 sensor_IQ.In.Ss
@@ -941,15 +766,38 @@ sensor_ME.V
 sensor_OCI.OCI
 Constant1.k
 Constant3.k
+settlergurl.Feed.So
+settlergurl.Effluent.Xi
+settlergurl.Effluent.Xs
+settlergurl.Effluent.Xbh
+settlergurl.Effluent.Xba
+settlergurl.Effluent.Xp
+settlergurl.Effluent.Xnd
+settlergurl.A
+settlergurl.T
+settlergurl.v
+settlergurl.rhop
+settlergurl.rhof
+settlergurl.d
+settlergurl.mu
+settlergurl.h
+settlergurl.g
 
-double initialValue(838,6)
+double initialValue(679,6)
   0       0                  0       0                  6  388   # Effluent.In.Q
+  0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Si
+  0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Ss
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xi
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xs
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xbh
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xba
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.So
+  0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Sno
+  0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Snh
+  0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Snd
   0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Xnd
+  0       0                  0 1.0000000000000000E+100  6  260   # Effluent.In.Salk
   0       0                  0       0                  6  388   # Effluent.MeasurePort.Q
   0       0                  0       0                  6  388   # WasteSludge.In.Q
   0       0                  0 1.0000000000000000E+100  6  260   # WasteSludge.In.Xi
@@ -958,234 +806,9 @@ double initialValue(838,6)
   0       0                  0 1.0000000000000000E+100  6  260   # WasteSludge.In.Xba
   0       0                  0 1.0000000000000000E+100  6  260   # WasteSludge.In.Xp
   0       0                  0 1.0000000000000000E+100  6  260   # WasteSludge.In.Xnd
-  0       0                  0       0                  6  256   # Settler.rXi
-  0       0                  0       0                  6  256   # Settler.rXs
-  0       0                  0       0                  6  256   # Settler.rXbh
-  0       0                  0       0                  6  256   # Settler.rXba
-  0       0                  0       0                  6  256   # Settler.rXp
-  0       0                  0       0                  6  256   # Settler.rXnd
- -1       4                  0       0                  1  280   # Settler.hsc
- -1      10                  0       0                  1  282   # Settler.n
-  0       0                  0       0                  6  256   # Settler.zm
- -1    1500                  0       0                  1  280   # Settler.Asc
- -1    3000                  0 1.0000000000000000E+100  1  280   # Settler.Xt
-  0       0                  0 1.0000000000000000E+100  6  256   # Settler.Xf
-  0       0                  0       0                  6  388   # Settler.Feed.Q
-  0       2                  0 1.0000000000000000E+100  6  260   # Settler.Feed.So
-  0       0                  0       0                  6  388   # Settler.Return.Q
-  0       0                  0 1.0000000000000000E+100  6  260   # Settler.Return.Xi
-  0       0                  0 1.0000000000000000E+100  6  260   # Settler.Return.Xs
-  0       0                  0 1.0000000000000000E+100  6  260   # Settler.Return.Xbh
-  0       0                  0 1.0000000000000000E+100  6  260   # Settler.Return.Xba
-  0       0                  0 1.0000000000000000E+100  6  260   # Settler.Return.Xp
-  0       0                  0 1.0000000000000000E+100  6  260   # Settler.Return.Xnd
-  0       0                  0       0                  6  256   # Settler.S1.zm
-  0       0                  0       0                  6  256   # Settler.S1.Asc
- -1  6.4242636813629997E+03  0 1.0000000000000000E+100  2  280   # Settler.S1.X
-  0       0                  0       0                  3  256   # Settler.S1.der(X)
-  0       0                  0       0                  6  256   # Settler.S1.vS
-  0       0                  0       0                  6  256   # Settler.S1.Jsm
- -1      30                  0 1.0000000000000000E+100  2  280   # Settler.S1.Si
-  0       0                  0       0                  3  256   # Settler.S1.der(Si)
- -1  1.2950301321490001E+00  0 1.0000000000000000E+100  2  280   # Settler.S1.Ss
-  0       0                  0       0                  3  256   # Settler.S1.der(Ss)
- -1  1.9999983704460000E+00  0 1.0000000000000000E+100  2  280   # Settler.S1.So
-  0       0                  0       0                  3  256   # Settler.S1.der(So)
- -1  1.6234735473699999E+01  0 1.0000000000000000E+100  2  280   # Settler.S1.Sno
-  0       0                  0       0                  3  256   # Settler.S1.der(Sno)
- -1  2.3567277998270000E+00  0 1.0000000000000000E+100  2  280   # Settler.S1.Snh
-  0       0                  0       0                  3  256   # Settler.S1.der(Snh)
- -1  5.0976611844480002E-01  0 1.0000000000000000E+100  2  280   # Settler.S1.Snd
-  0       0                  0       0                  3  256   # Settler.S1.der(Snd)
- -1  3.8334721900600002E+00  0 1.0000000000000000E+100  2  280   # Settler.S1.Salk
-  0       0                  0       0                  3  256   # Settler.S1.der(Salk)
-  0       0                  0       0                  6  388   # Settler.S1.Up.SedFlux
-  0       0                  0       0                  6  256   # Settler.S2.zm
-  0       0                  0       0                  6  256   # Settler.S2.Asc
- -1  3.8585341850970002E+02  0 1.0000000000000000E+100  2  280   # Settler.S2.X
-  0       0                  0       0                  3  256   # Settler.S2.der(X)
-  0       0                  0       0                  6  256   # Settler.S2.vS
- -1      30                  0 1.0000000000000000E+100  2  280   # Settler.S2.Si
-  0       0                  0       0                  3  256   # Settler.S2.der(Si)
- -1  1.3134691094760000E+00  0 1.0000000000000000E+100  2  280   # Settler.S2.Ss
-  0       0                  0       0                  3  256   # Settler.S2.der(Ss)
- -1  1.9999978086729999E+00  0 1.0000000000000000E+100  2  280   # Settler.S2.So
-  0       0                  0       0                  3  256   # Settler.S2.der(So)
- -1  1.5967967271519999E+01  0 1.0000000000000000E+100  2  280   # Settler.S2.Sno
-  0       0                  0       0                  3  256   # Settler.S2.der(Sno)
- -1  2.6206884986040002E+00  0 1.0000000000000000E+100  2  280   # Settler.S2.Snh
-  0       0                  0       0                  3  256   # Settler.S2.der(Snh)
- -1  5.1494989564789995E-01  0 1.0000000000000000E+100  2  280   # Settler.S2.Snd
-  0       0                  0       0                  3  256   # Settler.S2.der(Snd)
- -1  3.8669695410770002E+00  0 1.0000000000000000E+100  2  280   # Settler.S2.Salk
-  0       0                  0       0                  3  256   # Settler.S2.der(Salk)
-  0       0                  0       0                  6  388   # Settler.S2.Up.SedFlux
-  0       0                  0       0                  6  256   # Settler.S3.zm
-  0       0                  0       0                  6  256   # Settler.S3.Asc
- -1  3.5353684223480002E+02  0 1.0000000000000000E+100  2  280   # Settler.S3.X
-  0       0                  0       0                  3  256   # Settler.S3.der(X)
-  0       0                  0       0                  6  256   # Settler.S3.vS
- -1      30                  0 1.0000000000000000E+100  2  280   # Settler.S3.Si
-  0       0                  0       0                  3  256   # Settler.S3.der(Si)
- -1  1.3263040628650000E+00  0 1.0000000000000000E+100  2  280   # Settler.S3.Ss
-  0       0                  0       0                  3  256   # Settler.S3.der(Ss)
- -1  1.9999985056950000E+00  0 1.0000000000000000E+100  2  280   # Settler.S3.So
-  0       0                  0       0                  3  256   # Settler.S3.der(So)
- -1  1.5743217636000001E+01  0 1.0000000000000000E+100  2  280   # Settler.S3.Sno
-  0       0                  0       0                  3  256   # Settler.S3.der(Sno)
- -1  3.0056288873780002E+00  0 1.0000000000000000E+100  2  280   # Settler.S3.Snh
-  0       0                  0       0                  3  256   # Settler.S3.der(Snh)
- -1  5.1923343224170004E-01  0 1.0000000000000000E+100  2  280   # Settler.S3.Snd
-  0       0                  0       0                  3  256   # Settler.S3.der(Snd)
- -1  3.8944566245400001E+00  0 1.0000000000000000E+100  2  280   # Settler.S3.Salk
-  0       0                  0       0                  3  256   # Settler.S3.der(Salk)
-  0       0                  0       0                  6  388   # Settler.S3.Up.SedFlux
-  0       0                  0       0                  6  256   # Settler.S4.zm
-  0       0                  0       0                  6  256   # Settler.S4.Asc
- -1  3.6581639248360000E+02  0 1.0000000000000000E+100  2  280   # Settler.S4.X
-  0       0                  0       0                  3  256   # Settler.S4.der(X)
-  0       0                  0       0                  6  256   # Settler.S4.vS
- -1      30                  0 1.0000000000000000E+100  2  280   # Settler.S4.Si
-  0       0                  0       0                  3  256   # Settler.S4.der(Si)
- -1  1.3120693782170001E+00  0 1.0000000000000000E+100  2  280   # Settler.S4.Ss
-  0       0                  0       0                  3  256   # Settler.S4.der(Ss)
- -1  2.0000001377790002E+00  0 1.0000000000000000E+100  2  280   # Settler.S4.So
-  0       0                  0       0                  3  256   # Settler.S4.der(So)
- -1  1.5724052179819999E+01  0 1.0000000000000000E+100  2  280   # Settler.S4.Sno
-  0       0                  0       0                  3  256   # Settler.S4.der(Sno)
- -1  3.3119017106770001E+00  0 1.0000000000000000E+100  2  280   # Settler.S4.Snh
-  0       0                  0       0                  3  256   # Settler.S4.der(Snh)
- -1  5.1583896252679995E-01  0 1.0000000000000000E+100  2  280   # Settler.S4.Snd
-  0       0                  0       0                  3  256   # Settler.S4.der(Snd)
- -1  3.8930330831130000E+00  0 1.0000000000000000E+100  2  280   # Settler.S4.Salk
-  0       0                  0       0                  3  256   # Settler.S4.der(Salk)
-  0       0                  0       0                  6  388   # Settler.S4.Up.SedFlux
-  0       0                  0       0                  6  256   # Settler.S5.zm
-  0       0                  0       0                  6  256   # Settler.S5.Asc
- -1  3.9277335547330000E+02  0 1.0000000000000000E+100  2  280   # Settler.S5.X
-  0       0                  0       0                  3  256   # Settler.S5.der(X)
-  0       0                  0       0                  6  256   # Settler.S5.vS
- -1      30                  0 1.0000000000000000E+100  2  280   # Settler.S5.Si
-  0       0                  0       0                  3  256   # Settler.S5.der(Si)
- -1  1.2699425507150000E+00  0 1.0000000000000000E+100  2  280   # Settler.S5.Ss
-  0       0                  0       0                  3  256   # Settler.S5.der(Ss)
- -1  2.0000010824630001E+00  0 1.0000000000000000E+100  2  280   # Settler.S5.So
-  0       0                  0       0                  3  256   # Settler.S5.der(So)
- -1  1.6032255850799999E+01  0 1.0000000000000000E+100  2  280   # Settler.S5.Sno
-  0       0                  0       0                  3  256   # Settler.S5.der(Sno)
- -1  3.3534796573440002E+00  0 1.0000000000000000E+100  2  280   # Settler.S5.Snh
-  0       0                  0       0                  3  256   # Settler.S5.der(Snh)
- -1  5.0308457282149999E-01  0 1.0000000000000000E+100  2  280   # Settler.S5.Snd
-  0       0                  0       0                  3  256   # Settler.S5.der(Snd)
- -1  3.8450186838320000E+00  0 1.0000000000000000E+100  2  280   # Settler.S5.Salk
-  0       0                  0       0                  3  256   # Settler.S5.der(Salk)
-  0       0                  0       0                  6  388   # Settler.S5.Up.SedFlux
-  0       0                  0       0                  6  256   # Settler.S6.zm
-  0       0                  0       0                  6  256   # Settler.S6.Asc
- -1  3.7070949109850000E+02  0 1.0000000000000000E+100  2  280   # Settler.S6.X
-  0       0                  0       0                  3  256   # Settler.S6.der(X)
-  0       0                  0       0                  6  256   # Settler.S6.vS
- -1      30                  0 1.0000000000000000E+100  2  280   # Settler.S6.Si
-  0       0                  0       0                  3  256   # Settler.S6.der(Si)
- -1  1.2415686881520001E+00  0 1.0000000000000000E+100  2  280   # Settler.S6.Ss
-  0       0                  0       0                  3  256   # Settler.S6.der(Ss)
- -1  1.9999998289950001E+00  0 1.0000000000000000E+100  2  280   # Settler.S6.So
-  0       0                  0       0                  3  256   # Settler.S6.der(So)
- -1  1.6565425809770002E+01  0 1.0000000000000000E+100  2  280   # Settler.S6.Sno
-  0       0                  0       0                  3  256   # Settler.S6.der(Sno)
- -1  3.1576458996640002E+00  0 1.0000000000000000E+100  2  280   # Settler.S6.Snh
-  0       0                  0       0                  3  256   # Settler.S6.der(Snh)
- -1  4.9246900640489999E-01  0 1.0000000000000000E+100  2  280   # Settler.S6.Snd
-  0       0                  0       0                  3  256   # Settler.S6.der(Snd)
- -1  3.7636679822439998E+00  0 1.0000000000000000E+100  2  280   # Settler.S6.Salk
-  0       0                  0       0                  3  256   # Settler.S6.der(Salk)
-  0       0                  0       0                  6  388   # Settler.S6.Up.SedFlux
-  0       2                  0 1.0000000000000000E+100  6  260   # Settler.S6.In.So
-  0       0                  0       0                  6  256   # Settler.S7.zm
-  0       0                  0       0                  6  256   # Settler.S7.Asc
- -1  7.3773201371339994E+01  0 1.0000000000000000E+100  2  280   # Settler.S7.X
-  0       0                  0       0                  3  256   # Settler.S7.der(X)
-  0       0                  0       0                  6  256   # Settler.S7.vS
- -1      30                  0 1.0000000000000000E+100  2  280   # Settler.S7.Si
-  0       0                  0       0                  3  256   # Settler.S7.der(Si)
- -1  1.2695437106650000E+00  0 1.0000000000000000E+100  2  280   # Settler.S7.Ss
-  0       0                  0       0                  3  256   # Settler.S7.der(Ss)
- -1  2.0000010621870001E+00  0 1.0000000000000000E+100  2  280   # Settler.S7.So
-  0       0                  0       0                  3  256   # Settler.S7.der(So)
- -1  1.6037790834079999E+01  0 1.0000000000000000E+100  2  280   # Settler.S7.Sno
-  0       0                  0       0                  3  256   # Settler.S7.der(Sno)
- -1  3.3505960240110002E+00  0 1.0000000000000000E+100  2  280   # Settler.S7.Snh
-  0       0                  0       0                  3  256   # Settler.S7.der(Snh)
- -1  5.0294536087660002E-01  0 1.0000000000000000E+100  2  280   # Settler.S7.Snd
-  0       0                  0       0                  3  256   # Settler.S7.der(Snd)
- -1  3.8442159403549998E+00  0 1.0000000000000000E+100  2  280   # Settler.S7.Salk
-  0       0                  0       0                  3  256   # Settler.S7.der(Salk)
-  0       0                  0 1.0000000000000000E+100  6  256   # Settler.S7.Xt
-  0       0                  0       0                  6  388   # Settler.S7.Up.SedFlux
-  0       0                  0       0                  6  256   # Settler.S8.zm
-  0       0                  0       0                  6  256   # Settler.S8.Asc
- -1  3.0820709887709999E+01  0 1.0000000000000000E+100  2  280   # Settler.S8.X
-  0       0                  0       0                  3  256   # Settler.S8.der(X)
-  0       0                  0       0                  6  256   # Settler.S8.vS
- -1      30                  0 1.0000000000000000E+100  2  280   # Settler.S8.Si
-  0       0                  0       0                  3  256   # Settler.S8.der(Si)
- -1  1.3114046897100000E+00  0 1.0000000000000000E+100  2  280   # Settler.S8.Ss
-  0       0                  0       0                  3  256   # Settler.S8.der(Ss)
- -1  2.0000001197190000E+00  0 1.0000000000000000E+100  2  280   # Settler.S8.So
-  0       0                  0       0                  3  256   # Settler.S8.der(So)
- -1  1.5731797789080000E+01  0 1.0000000000000000E+100  2  280   # Settler.S8.Sno
-  0       0                  0       0                  3  256   # Settler.S8.der(Sno)
- -1  3.3098406258190001E+00  0 1.0000000000000000E+100  2  280   # Settler.S8.Snh
-  0       0                  0       0                  3  256   # Settler.S8.der(Snh)
- -1  5.1562807753020001E-01  0 1.0000000000000000E+100  2  280   # Settler.S8.Snd
-  0       0                  0       0                  3  256   # Settler.S8.der(Snd)
- -1  3.8920005823000001E+00  0 1.0000000000000000E+100  2  280   # Settler.S8.Salk
-  0       0                  0       0                  3  256   # Settler.S8.der(Salk)
-  0       0                  0 1.0000000000000000E+100  6  256   # Settler.S8.Xt
-  0       0                  0       0                  6  388   # Settler.S8.Up.SedFlux
-  0       0                  0       0                  6  256   # Settler.S9.zm
-  0       0                  0       0                  6  256   # Settler.S9.Asc
- -1  1.8636930815829999E+01  0 1.0000000000000000E+100  2  280   # Settler.S9.X
-  0       0                  0       0                  3  256   # Settler.S9.der(X)
-  0       0                  0       0                  6  256   # Settler.S9.vS
- -1      30                  0 1.0000000000000000E+100  2  280   # Settler.S9.Si
-  0       0                  0       0                  3  256   # Settler.S9.der(Si)
- -1  1.3265016302329999E+00  0 1.0000000000000000E+100  2  280   # Settler.S9.Ss
-  0       0                  0       0                  3  256   # Settler.S9.der(Ss)
- -1  1.9999985109200000E+00  0 1.0000000000000000E+100  2  280   # Settler.S9.So
-  0       0                  0       0                  3  256   # Settler.S9.der(So)
- -1  1.5753002209949999E+01  0 1.0000000000000000E+100  2  280   # Settler.S9.Sno
-  0       0                  0       0                  3  256   # Settler.S9.der(Sno)
- -1  3.0142975811260002E+00  0 1.0000000000000000E+100  2  280   # Settler.S9.Snh
-  0       0                  0       0                  3  256   # Settler.S9.der(Snh)
- -1  5.1929905002910004E-01  0 1.0000000000000000E+100  2  280   # Settler.S9.Snd
-  0       0                  0       0                  3  256   # Settler.S9.der(Snd)
- -1  3.8932715736160000E+00  0 1.0000000000000000E+100  2  280   # Settler.S9.Salk
-  0       0                  0       0                  3  256   # Settler.S9.der(Salk)
-  0       0                  0 1.0000000000000000E+100  6  256   # Settler.S9.Xt
-  0       0                  0       0                  6  388   # Settler.S9.Up.SedFlux
-  0       0                  0       0                  6  256   # Settler.S10.zm
-  0       0                  0       0                  6  256   # Settler.S10.Asc
- -1  1.2755364454190000E+01  0 1.0000000000000000E+100  2  280   # Settler.S10.X
-  0       0                  0       0                  3  256   # Settler.S10.der(X)
-  0       0                  0       0                  6  256   # Settler.S10.vS
- -1      30                  0 1.0000000000000000E+100  2  280   # Settler.S10.Si
-  0       0                  0       0                  3  256   # Settler.S10.der(Si)
- -1  1.3159231537470000E+00  0 1.0000000000000000E+100  2  280   # Settler.S10.Ss
-  0       0                  0       0                  3  256   # Settler.S10.der(Ss)
- -1  1.9999978544920001E+00  0 1.0000000000000000E+100  2  280   # Settler.S10.So
-  0       0                  0       0                  3  256   # Settler.S10.der(So)
- -1  1.5978565724610000E+01  0 1.0000000000000000E+100  2  280   # Settler.S10.Sno
-  0       0                  0       0                  3  256   # Settler.S10.der(Sno)
- -1  2.6599140273990001E+00  0 1.0000000000000000E+100  2  280   # Settler.S10.Snh
-  0       0                  0       0                  3  256   # Settler.S10.der(Snh)
- -1  5.1571537814010004E-01  0 1.0000000000000000E+100  2  280   # Settler.S10.Snd
-  0       0                  0       0                  3  256   # Settler.S10.der(Snd)
- -1  3.8658604591710000E+00  0 1.0000000000000000E+100  2  280   # Settler.S10.Salk
-  0       0                  0       0                  3  256   # Settler.S10.der(Salk)
-  0       0                  0 1.0000000000000000E+100  6  256   # Settler.S10.Xt
   0       0                  0       0                  6  388   # divider.In.Q
   0       2                  0 1.0000000000000000E+100  6  260   # divider.In.So
+  0       0                  0       0                  6  388   # divider.Out1.Q
   0       2                  0 1.0000000000000000E+100  6  260   # divider.Out1.So
   0       0                  0       0                  6  388   # divider.Out2.Q
   0       2                  0 1.0000000000000000E+100  6  260   # divider.Out2.So
@@ -1272,7 +895,7 @@ double initialValue(838,6)
   0       2                  0 1.0000000000000000E+100  6  260   # tank5.MeasurePort.So
  -1    1333                  0       0                  1  280   # tank5.V
  -1       4                  0       0                  1  280   # tank5.de
-  0     100                  0 1.0000000000000000E+100  6  256   # tank5.So_sat
+  0       8                  0 1.0000000000000000E+100  6  256   # tank5.So_sat
   0       0                  0       0                  6  388   # tank5.AirIn.Q_air
   0       0                  0       0                  6  256   # tank5.Kla
  -1  6.7000000000000004E-01  0       0                  1  280   # tank4.Y_h
@@ -1630,6 +1253,7 @@ double initialValue(838,6)
   0  6.9500000000000002E+00  0 1.0000000000000000E+100  6  260   # mixer.In1.Snd
   0  1.0590000000000000E+01  0 1.0000000000000000E+100  6  260   # mixer.In1.Xnd
   0       7                  0 1.0000000000000000E+100  6  260   # mixer.In1.Salk
+  0       0                  0       0                  6  388   # mixer.In2.Q
   0       2                  0 1.0000000000000000E+100  6  260   # mixer.In3.So
   0  -18446                  0       0                  6  388   # WWSource.Out.Q
   0      30                  0 1.0000000000000000E+100  6  260   # WWSource.Out.Si
@@ -1665,16 +1289,40 @@ double initialValue(838,6)
   0       0                  0       0                  6  256   # WastePump.Q
  -1       1                  0       0                  1  280   # Constant2.k
   0       0                  0       0                  6  388   # sensor_NH1.In.Q
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NH1.In.Xi
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NH1.In.Xs
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NH1.In.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NH1.In.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NH1.In.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NH1.In.Xnd
   0       0                  0       0                  6  388   # sensor_NO1.In.Q
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NO1.In.Xi
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NO1.In.Xs
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NO1.In.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NO1.In.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NO1.In.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_NO1.In.Xnd
  -1  6.7000000000000004E-01  0       0                  1  280   # sensor_TKN1.Y_h
  -1  2.3999999999999999E-01  0       0                  1  280   # sensor_TKN1.Y_a
  -1  8.0000000000000002E-02  0       0                  1  280   # sensor_TKN1.f_p
  -1  8.0000000000000002E-02  0       0                  1  280   # sensor_TKN1.i_xb
  -1  5.9999999999999998E-02  0       0                  1  280   # sensor_TKN1.i_xp
   0       0                  0       0                  6  388   # sensor_TKN1.In.Q
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_TKN1.In.Xi
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_TKN1.In.Xs
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_TKN1.In.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_TKN1.In.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_TKN1.In.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_TKN1.In.Xnd
   0       0                  0       0                  6  256   # sensor_TKN1.TKN[1]
   0       0                  0       0                  6  256   # sensor_TKN1.TKN[2]
   0       0                  0       0                  6  388   # sensor_COD1.In.Q
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_COD1.In.Xi
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_COD1.In.Xs
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_COD1.In.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_COD1.In.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_COD1.In.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_COD1.In.Xnd
   0       0                  0       0                  6  256   # sensor_COD1.COD
   0       0                  0       0                  6  388   # sensor_TSS1.In.Q
   0       2                  0 1.0000000000000000E+100  6  260   # sensor_TSS1.In.So
@@ -1690,6 +1338,12 @@ double initialValue(838,6)
  -1  1.0000000000000000E-03  0       0                  2  280   # sensor_PE.T
   0       0                  0       0                  3  256   # sensor_PE.der(T)
   0       0                  0       0                  6  388   # sensor_EQ.In.Q
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_EQ.In.Xi
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_EQ.In.Xs
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_EQ.In.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_EQ.In.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_EQ.In.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_EQ.In.Xnd
  -1       0                  0       0                  2  280   # sensor_EQ.EQ
   0       0                  0       0                  3  256   # sensor_EQ.der(EQ)
  -1       2                  0       0                  1  280   # sensor_EQ.Bss
@@ -1706,6 +1360,18 @@ double initialValue(838,6)
   0       0                  0       0                  6  256   # sensor_EQ.SSe
   0       0                  0       0                  6  256   # sensor_EQ.BOD
   0       0                  0       0                  6  256   # sensor_EQ.COD
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.In.Xi
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.In.Xs
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.In.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.In.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.In.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.In.Xnd
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.Out.Xi
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.Out.Xs
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.Out.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.Out.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.Out.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # sensor_Q.Out.Xnd
   0       0                  0       0                  6  388   # sensor_IQ.In.Q
   0      30                  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Si
   0  6.9500000000000000E+01  0 1.0000000000000000E+100  6  260   # sensor_IQ.In.Ss
@@ -1781,6 +1447,22 @@ double initialValue(838,6)
   0       0                  0       0                  6  256   # sensor_OCI.OCI
  -1   55338                  0       0                  1  280   # Constant1.k
  -1       1                  0       0                  1  280   # Constant3.k
+  0       2                  0 1.0000000000000000E+100  6  260   # settlergurl.Feed.So
+  0       0                  0 1.0000000000000000E+100  6  260   # settlergurl.Effluent.Xi
+  0       0                  0 1.0000000000000000E+100  6  260   # settlergurl.Effluent.Xs
+  0       0                  0 1.0000000000000000E+100  6  260   # settlergurl.Effluent.Xbh
+  0       0                  0 1.0000000000000000E+100  6  260   # settlergurl.Effluent.Xba
+  0       0                  0 1.0000000000000000E+100  6  260   # settlergurl.Effluent.Xp
+  0       0                  0 1.0000000000000000E+100  6  260   # settlergurl.Effluent.Xnd
+  0      10                  0       0                  6  256   # settlergurl.A
+  0  1.4678899082568810E+02  0       0                  6  256   # settlergurl.T
+  0  2.7249999999999993E-02  0       0                  6  256   # settlergurl.v
+  0    1200                  0       0                  6  256   # settlergurl.rhop
+  0    1000                  0       0                  6  256   # settlergurl.rhof
+  0  5.0000000000000001E-04  0       0                  6  256   # settlergurl.d
+  0  1.0000000000000000E-03  0       0                  6  256   # settlergurl.mu
+  0       4                  0       0                  6  256   # settlergurl.h
+  0  9.8100000000000005E+00  0       0                  6  256   # settlergurl.g
 
 
 # Matrix with 6 columns defining the initial value calculation
@@ -1831,7 +1513,22 @@ double initialValue(838,6)
 #   nominal value (and maybe minimum and maximum values given in 
 #   column 3 and 4). If these values are zero, scale(i)=1 is used).
 #
-char initialDescription(838,72)
+char initialDescription(679,72)
+[m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mmol/l]
+[m3/d]
 [m3/d]
 [mg/l]
 [mg/l]
@@ -1840,241 +1537,8 @@ char initialDescription(838,72)
 [mg/l]
 [mg/l]
 [m3/d]
-[m3/d]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-
-
-
-
-
-
-height of secondary clarifier [m]
-number of layers of SC model [:#(type=Integer)]
-height of m-th secondary clarifier layer [m]
-area of secondary clarifier [m2]
-threshold for X [mg/l]
 [mg/l]
 [m3/d]
-[mg/l]
-[m3/d]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[mg/l]
-[m]
-[m2]
-total sludge concentration in m-th layer [mg/l]
-der(total sludge concentration in m-th layer) [mg/(l.s)]
-sink velocity in m-th layer [m/d]
-sedimentation flux m-th layer [g/(m2*d)]
-Soluble inert organic matter [mg/l]
-der(Soluble inert organic matter) [mg/(l.s)]
-Readily biodegradable substrate [mg/l]
-der(Readily biodegradable substrate) [mg/(l.s)]
-Dissolved oxygen [mg/l]
-der(Dissolved oxygen) [mg/(l.s)]
-Nitrate and nitrite nitrogen [mg/l]
-der(Nitrate and nitrite nitrogen) [mg/(l.s)]
-Ammonium nitrogen [mg/l]
-der(Ammonium nitrogen) [mg/(l.s)]
-Soluble biodegradable organic nitrogen [mg/l]
-der(Soluble biodegradable organic nitrogen) [mg/(l.s)]
-Alkalinity [mmol/l]
-der(Alkalinity) [m-3.s-1.mol]
-[g/(m2*d)]
-[m]
-[m2]
-total sludge concentration in m-th layer [mg/l]
-der(total sludge concentration in m-th layer) [mg/(l.s)]
-sink velocity in m-th layer [m/d]
-Soluble inert organic matter [mg/l]
-der(Soluble inert organic matter) [mg/(l.s)]
-Readily biodegradable substrate [mg/l]
-der(Readily biodegradable substrate) [mg/(l.s)]
-Dissolved oxygen [mg/l]
-der(Dissolved oxygen) [mg/(l.s)]
-Nitrate and nitrite nitrogen [mg/l]
-der(Nitrate and nitrite nitrogen) [mg/(l.s)]
-Ammonium nitrogen [mg/l]
-der(Ammonium nitrogen) [mg/(l.s)]
-Soluble biodegradable organic nitrogen [mg/l]
-der(Soluble biodegradable organic nitrogen) [mg/(l.s)]
-Alkalinity [mmol/l]
-der(Alkalinity) [m-3.s-1.mol]
-[g/(m2*d)]
-[m]
-[m2]
-total sludge concentration in m-th layer [mg/l]
-der(total sludge concentration in m-th layer) [mg/(l.s)]
-sink velocity in m-th layer [m/d]
-Soluble inert organic matter [mg/l]
-der(Soluble inert organic matter) [mg/(l.s)]
-Readily biodegradable substrate [mg/l]
-der(Readily biodegradable substrate) [mg/(l.s)]
-Dissolved oxygen [mg/l]
-der(Dissolved oxygen) [mg/(l.s)]
-Nitrate and nitrite nitrogen [mg/l]
-der(Nitrate and nitrite nitrogen) [mg/(l.s)]
-Ammonium nitrogen [mg/l]
-der(Ammonium nitrogen) [mg/(l.s)]
-Soluble biodegradable organic nitrogen [mg/l]
-der(Soluble biodegradable organic nitrogen) [mg/(l.s)]
-Alkalinity [mmol/l]
-der(Alkalinity) [m-3.s-1.mol]
-[g/(m2*d)]
-[m]
-[m2]
-total sludge concentration in m-th layer [mg/l]
-der(total sludge concentration in m-th layer) [mg/(l.s)]
-sink velocity in m-th layer [m/d]
-Soluble inert organic matter [mg/l]
-der(Soluble inert organic matter) [mg/(l.s)]
-Readily biodegradable substrate [mg/l]
-der(Readily biodegradable substrate) [mg/(l.s)]
-Dissolved oxygen [mg/l]
-der(Dissolved oxygen) [mg/(l.s)]
-Nitrate and nitrite nitrogen [mg/l]
-der(Nitrate and nitrite nitrogen) [mg/(l.s)]
-Ammonium nitrogen [mg/l]
-der(Ammonium nitrogen) [mg/(l.s)]
-Soluble biodegradable organic nitrogen [mg/l]
-der(Soluble biodegradable organic nitrogen) [mg/(l.s)]
-Alkalinity [mmol/l]
-der(Alkalinity) [m-3.s-1.mol]
-[g/(m2*d)]
-[m]
-[m2]
-total sludge concentration in m-th layer [mg/l]
-der(total sludge concentration in m-th layer) [mg/(l.s)]
-sink velocity in m-th layer [m/d]
-Soluble inert organic matter [mg/l]
-der(Soluble inert organic matter) [mg/(l.s)]
-Readily biodegradable substrate [mg/l]
-der(Readily biodegradable substrate) [mg/(l.s)]
-Dissolved oxygen [mg/l]
-der(Dissolved oxygen) [mg/(l.s)]
-Nitrate and nitrite nitrogen [mg/l]
-der(Nitrate and nitrite nitrogen) [mg/(l.s)]
-Ammonium nitrogen [mg/l]
-der(Ammonium nitrogen) [mg/(l.s)]
-Soluble biodegradable organic nitrogen [mg/l]
-der(Soluble biodegradable organic nitrogen) [mg/(l.s)]
-Alkalinity [mmol/l]
-der(Alkalinity) [m-3.s-1.mol]
-[g/(m2*d)]
-[m]
-[m2]
-total sludge concentration in m-th layer [mg/l]
-der(total sludge concentration in m-th layer) [mg/(l.s)]
-sink velocity in m-th layer [m/d]
-Soluble inert organic matter [mg/l]
-der(Soluble inert organic matter) [mg/(l.s)]
-Readily biodegradable substrate [mg/l]
-der(Readily biodegradable substrate) [mg/(l.s)]
-Dissolved oxygen [mg/l]
-der(Dissolved oxygen) [mg/(l.s)]
-Nitrate and nitrite nitrogen [mg/l]
-der(Nitrate and nitrite nitrogen) [mg/(l.s)]
-Ammonium nitrogen [mg/l]
-der(Ammonium nitrogen) [mg/(l.s)]
-Soluble biodegradable organic nitrogen [mg/l]
-der(Soluble biodegradable organic nitrogen) [mg/(l.s)]
-Alkalinity [mmol/l]
-der(Alkalinity) [m-3.s-1.mol]
-[g/(m2*d)]
-[mg/l]
-[m]
-[m2]
-total sludge concentration in m-th layer [mg/l]
-der(total sludge concentration in m-th layer) [mg/(l.s)]
-sink velocity in m-th layer [m/d]
-Soluble inert organic matter [mg/l]
-der(Soluble inert organic matter) [mg/(l.s)]
-Readily biodegradable substrate [mg/l]
-der(Readily biodegradable substrate) [mg/(l.s)]
-Dissolved oxygen [mg/l]
-der(Dissolved oxygen) [mg/(l.s)]
-Nitrate and nitrite nitrogen [mg/l]
-der(Nitrate and nitrite nitrogen) [mg/(l.s)]
-Ammonium nitrogen [mg/l]
-der(Ammonium nitrogen) [mg/(l.s)]
-Soluble biodegradable organic nitrogen [mg/l]
-der(Soluble biodegradable organic nitrogen) [mg/(l.s)]
-Alkalinity [mmol/l]
-der(Alkalinity) [m-3.s-1.mol]
-[mg/l]
-[g/(m2*d)]
-[m]
-[m2]
-total sludge concentration in m-th layer [mg/l]
-der(total sludge concentration in m-th layer) [mg/(l.s)]
-sink velocity in m-th layer [m/d]
-Soluble inert organic matter [mg/l]
-der(Soluble inert organic matter) [mg/(l.s)]
-Readily biodegradable substrate [mg/l]
-der(Readily biodegradable substrate) [mg/(l.s)]
-Dissolved oxygen [mg/l]
-der(Dissolved oxygen) [mg/(l.s)]
-Nitrate and nitrite nitrogen [mg/l]
-der(Nitrate and nitrite nitrogen) [mg/(l.s)]
-Ammonium nitrogen [mg/l]
-der(Ammonium nitrogen) [mg/(l.s)]
-Soluble biodegradable organic nitrogen [mg/l]
-der(Soluble biodegradable organic nitrogen) [mg/(l.s)]
-Alkalinity [mmol/l]
-der(Alkalinity) [m-3.s-1.mol]
-[mg/l]
-[g/(m2*d)]
-[m]
-[m2]
-total sludge concentration in m-th layer [mg/l]
-der(total sludge concentration in m-th layer) [mg/(l.s)]
-sink velocity in m-th layer [m/d]
-Soluble inert organic matter [mg/l]
-der(Soluble inert organic matter) [mg/(l.s)]
-Readily biodegradable substrate [mg/l]
-der(Readily biodegradable substrate) [mg/(l.s)]
-Dissolved oxygen [mg/l]
-der(Dissolved oxygen) [mg/(l.s)]
-Nitrate and nitrite nitrogen [mg/l]
-der(Nitrate and nitrite nitrogen) [mg/(l.s)]
-Ammonium nitrogen [mg/l]
-der(Ammonium nitrogen) [mg/(l.s)]
-Soluble biodegradable organic nitrogen [mg/l]
-der(Soluble biodegradable organic nitrogen) [mg/(l.s)]
-Alkalinity [mmol/l]
-der(Alkalinity) [m-3.s-1.mol]
-[mg/l]
-[g/(m2*d)]
-[m]
-[m2]
-total sludge concentration in m-th layer [mg/l]
-der(total sludge concentration in m-th layer) [mg/(l.s)]
-sink velocity in m-th layer [m/d]
-Soluble inert organic matter [mg/l]
-der(Soluble inert organic matter) [mg/(l.s)]
-Readily biodegradable substrate [mg/l]
-der(Readily biodegradable substrate) [mg/(l.s)]
-Dissolved oxygen [mg/l]
-der(Dissolved oxygen) [mg/(l.s)]
-Nitrate and nitrite nitrogen [mg/l]
-der(Nitrate and nitrite nitrogen) [mg/(l.s)]
-Ammonium nitrogen [mg/l]
-der(Ammonium nitrogen) [mg/(l.s)]
-Soluble biodegradable organic nitrogen [mg/l]
-der(Soluble biodegradable organic nitrogen) [mg/(l.s)]
-Alkalinity [mmol/l]
-der(Alkalinity) [m-3.s-1.mol]
-[mg/l]
-[m3/d]
-[mg/l]
 [mg/l]
 [m3/d]
 [mg/l]
@@ -2519,6 +1983,7 @@ Volume of denitrification tank [m3]
 [mg/l]
 [mg/l]
 [mmol/l]
+[m3/d]
 [mg/l]
 [m3/d]
 [mg/l]
@@ -2554,16 +2019,40 @@ maximum pump capacity [m3/d]
 
 Constant output value
 [m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
 [m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
 Heterotrophic Yield [g Xbh COD formed/(g COD utilised)] []
 Autotrophic Yield [g Xba COD formed/(g N utilised)] []
 Fraction of biomass to particulate products [-] []
 Fraction nitrogen in biomass [g N/(g COD)] []
 Fraction nitrogen in particulate products [g N/(g COD)] []
 [m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
 
 
 [m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
 
 [m3/d]
 [mg/l]
@@ -2579,6 +2068,12 @@ Fraction nitrogen in particulate products [g N/(g COD)] []
 
 
 [m3/d]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
 
 
 
@@ -2595,6 +2090,18 @@ Fraction nitrogen in particulate products [g N/(g COD)] []
 
 
 
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
 [m3/d]
 [mg/l]
 [mg/l]
@@ -2670,4 +2177,20 @@ Fraction nitrogen in particulate products [g N/(g COD)] []
 
 Constant output value
 Constant output value
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+[mg/l]
+
+
+
+
+
+
+
+
+
 
