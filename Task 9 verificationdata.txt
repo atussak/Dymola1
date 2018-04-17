@@ -11,3 +11,8 @@ Settler.Waste.Snh		0.846194	mg/l
 Settler.Waste.Sno		13.7839		mg/l
 Settler.Waste.Xbh		5008.39		mg/l
 Settler.Xf			3272.3		mg/l
+
+Task 10:
+surface Area A = 15.6694 *1.6 =ish= 25 m^2
+
+length =  Area / width = 25 / 4 = 6.25 m
