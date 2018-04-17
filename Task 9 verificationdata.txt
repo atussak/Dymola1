@@ -1,0 +1,13 @@
+Effluent.in.Salk		3.8216 		mmol/l
+Effluent.In.Si			30 		mg/l
+Effluent.In.Snd			0.690479 	mg/l
+Effluent.In.Xbh			9.78282		mg/l
+tank5.aeration			849.548
+tank4.aeration			1300.29	
+tank3.aeration			1498.96
+Settler.Waste.Salk		3.8216		mmol/l
+Settler.Waste.Snd		0.690479	mg/l
+Settler.Waste.Snh		0.846194	mg/l
+Settler.Waste.Sno		13.7839		mg/l
+Settler.Waste.Xbh		5008.39		mg/l
+Settler.Xf			3272.3		mg/l
